@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+  post 'login' => 'application#login'
+  post 'logout' => 'application#logout'
+
+
   resources :users
   	resources :schools do
   		resources :courses

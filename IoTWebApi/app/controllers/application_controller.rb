@@ -8,6 +8,16 @@ class ApplicationController < ActionController::API
 	  # Add a before_action to authenticate all requests.
 	  # Move this to subclassed controllers if you only
 	  # want to authenticate certain methods.
+
+
+		def login
+		render json: { message: 'logging in!' }
+		end
+		def logout
+		render json:{ message: 'logging out!'}
+		end
+
+	  
 	  before_action :authenticate
 
 	  protected
