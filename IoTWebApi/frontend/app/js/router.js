@@ -11,6 +11,10 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     templateUrl: 'home.html',
     controller: 'HomeController'
   });
+  $routeProvider.when('/homeError', {
+    templateUrl: 'homeError.html',
+    controller: 'HomeController'
+  });
 
   $routeProvider.when('/$resource/list-of-books', {
     templateUrl: 'books_resource.html',

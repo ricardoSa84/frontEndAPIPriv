@@ -13,7 +13,7 @@ Course.delete_all
 
 @s.courses.create(name:'teste1')
 
-User.create(name: 'teste', email: 'teste')
+User.create(name: 'teste', email: 'teste', password:'teste')
 
 
 
