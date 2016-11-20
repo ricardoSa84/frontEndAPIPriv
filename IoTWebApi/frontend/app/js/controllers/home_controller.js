@@ -6,15 +6,14 @@ angular.module("app").controller('HomeController', function($scope, $location, A
     $location.path('/login');
   };
 
-   $scope.logout = function() {
+  $scope.logout = function() {
     AuthenticationService.logout().success(onLogoutSuccess);
   };
 
-  //$scope.getCredentials = function() {
-  //	var a = AuthenticationService.getCredentials()
-  //	$scope.message = a;
-  //};
-
-
+  $scope.getCredentials = function() {
+     $scope.credentials = AuthenticationService.getCredentials();
+  };
 
 });
+
+

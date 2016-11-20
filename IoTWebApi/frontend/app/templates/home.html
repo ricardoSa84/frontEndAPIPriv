@@ -1,25 +1,20 @@
-
-
-  <div id="home" class="row">
-    <div class="large-6 large-offset-3">
-      <h2>Welcome to the {{ title }} page!</h2>
-
-      <div class="alert-box">{{ message }}</div>
-   <div>dfgdfgdfgdfgdfgdfgdfg</div>
-      <ul class="small-block-grid-2">
-        <li>
-          <img class="th" src="img/demo1.jpg" shows-message-when-hovered message="Im the first house.">
-        </li>
-        <li>
-          <img class="th" src="img/demo2.jpg" shows-message-when-hovered message="Im the second house.">
-        </li>
-      </ul>
-
-      <div class="row">
-        <div class="large-12 columns">
-          <button ng-click="logout()" class="button large expand radius">Log Out</button>
-          <button ng-click="getCredentials()" class="button large expand radius">Credentials</button>
+<div id="Home" class="row" ng-init="getCredentials()">
+  <div class="large-6 large-offset-3">
+    <div class="alert-box">{{ message }}</div>
+    <form ng-submit="login()">
+      <fieldset class="radius">
+        <div class="row">
+          <div class="large-3 columns">
+            <input type="text" name="username" placeholder="username" ng-model="credentials.username"  />
+          </div>
+            <div class="large-3 columns">
+              <input type="text" name="password" placeholder="password" ng-model="credentials.password" />
+          </div>
+            <div class="large-3 columns">
+              <input type="text" name="token" placeholder="password" ng-model="credentials.token" />
+          </div>
         </div>
-      </div>
-    </div>
+      </fieldset>
+    </form>
   </div>
+</div>

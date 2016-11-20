@@ -7,4 +7,5 @@ angular.module("app", ["ngResource", "ngRoute"]).run(function($rootScope) {
   $rootScope.alert = function(thing) {
     alert(thing);
   };
+
 });

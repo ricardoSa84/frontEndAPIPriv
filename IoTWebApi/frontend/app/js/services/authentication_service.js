@@ -1,5 +1,6 @@
 angular.module("app").factory('AuthenticationService', function($http) {
   // these routes map to stubbed API endpoints in config/server.js
+var credentials = {};
 
   return {
     login: function(credentials) {
@@ -8,13 +9,12 @@ angular.module("app").factory('AuthenticationService', function($http) {
     logout: function() {
      	return $http.post('/logout');
     },
-    getCredentials: function() {
-   		//$scope.credentials = { token: $scope.token  };
-     return token;
+    getCredentials: function () {
+        return credentials;
+    },
+    setCredentials: function(value) {
+        credentials = value;
     }
-
   };
 });
-
-
 
