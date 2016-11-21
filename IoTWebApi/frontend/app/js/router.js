@@ -31,6 +31,6 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     }
   });
 
-  $routeProvider.otherwise({ redirectTo: '/v1/login' });
+  $routeProvider.otherwise({ redirectTo: '/login' });
 
 });
