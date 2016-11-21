@@ -1,4 +1,5 @@
-class SchoolsController < ApplicationController
+module Api::V1
+  class SchoolsController < ApiController
   before_action :set_school, only: [:show, :update, :destroy]
 
   # GET /schools
@@ -48,4 +49,5 @@ class SchoolsController < ApplicationController
     def school_params
       params.require(:school).permit(:name, :country, :distric, :city, :county, :postCode, :addressDetails)
     end
+  end
 end

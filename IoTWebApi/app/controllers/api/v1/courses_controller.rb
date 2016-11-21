@@ -1,4 +1,5 @@
-class CoursesController < ApplicationController
+module Api::V1
+  class CoursesController < ApiController
   before_action :set_course, only: [:show, :update, :destroy]
 
   # GET /courses
@@ -48,4 +49,5 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:name, :schools_id)
     end
+  end
 end
