@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
 scope module: 'api' do
 		namespace :v1 do
-		  post 'login' => 'application#login'
-		  post 'logout' => 'application#logout'
+
+		  post 'login' => 'api#login'
+		  post 'logout' => 'api#logout'
 
 
 		  resources :users

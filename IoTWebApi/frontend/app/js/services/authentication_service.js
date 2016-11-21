@@ -4,10 +4,10 @@ var credentials = {};
 
   return {
     login: function(credentials) {
-    	return $http.post('/login',credentials)
+    	return $http.post('/v1/login',credentials)
     },
     logout: function() {
-     	return $http.post('/logout');
+     	return $http.post('/v1/logout');
     },
     getCredentials: function () {
         return credentials;
