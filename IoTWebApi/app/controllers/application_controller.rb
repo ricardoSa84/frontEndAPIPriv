@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
 	  # Move this to subclassed controllers if you only
 	  # want to authenticate certain methods.
 
-	  #before_action :authenticate
+	  
 
 	  protected
 
