@@ -9,6 +9,9 @@ var credentials = {};
     logout: function() {
      	return $http.post('/v1/logout');
     },
+    register: function(credentials) {
+      return $http.post('/v1/users',credentials);
+    },
     getCredentials: function () {
         return credentials;
     },

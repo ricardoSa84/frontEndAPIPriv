@@ -26,6 +26,10 @@ angular.module("app").controller('LoginController',function($scope, $location, A
     }
 
 
+  $scope.register = function() {
+    $location.path('/register');
+  };
+
 });
 
 
