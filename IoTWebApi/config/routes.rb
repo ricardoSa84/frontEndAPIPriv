@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 scope module: 'api' do
 		namespace :v1 do
 
@@ -12,7 +13,7 @@ scope module: 'api' do
 		  	resources :schools do
 		  		resources :courses
 		  end
-
+  			resources :roles
 			resources :schools 
 			resources :courses
 		  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
