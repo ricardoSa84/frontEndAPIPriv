@@ -8,12 +8,19 @@
 
 School.delete_all
 Course.delete_all
+User.delete_all
+Role.delete_all
 
 @s = School.create(name:'IPT', country:'teste', distric:'teste',  city:'teste', county:'teste', postCode:'teste', addressDetails:'teste')
 
 @s.courses.create(name:'teste1')
 
-User.create(name: 'teste', email: 'teste', password:'teste')
+
+@r = Role.create(name: 'Admin')
+
+@r.users.create(name: 'teste', email: 'teste', password:'teste')
+
+
 
 
 
