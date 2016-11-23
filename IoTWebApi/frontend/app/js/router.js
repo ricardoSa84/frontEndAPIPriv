@@ -16,8 +16,12 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     templateUrl: 'register.html',
     controller: 'RegisterController'
   });
+<<<<<<< Updated upstream
 
 
+=======
+  
+>>>>>>> Stashed changes
   $routeProvider.when('/$resource/list-of-books', {
     templateUrl: 'books_resource.html',
     controller: 'BooksResourceController'

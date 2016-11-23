@@ -1,10 +1,15 @@
-angular.module("app").controller('LoginController',function($scope, $location, AuthenticationService) {
+angular.module("app").controller('LoginController',function($scope, $location, AuthenticationService,SessionService) {
   
+   var cacheSession   = function() {
+    SessionService.set('authenticated', true);
+  };
+
   $scope.credentials = { username: "", password: "" };
   $scope.message = "Hello!!";
 
   var onLoginSuccess = function(data) {
     //$scope.message = "Token : " + data.token;
+    cacheSession
     $scope.token = data.token;
     $scope.setCredentials();
     $location.path('/home');
@@ -26,6 +31,7 @@ angular.module("app").controller('LoginController',function($scope, $location, A
     }
 
 
+<<<<<<< Updated upstream
   $scope.register = function() {
     $location.path('/register');
   };
@@ -33,3 +39,6 @@ angular.module("app").controller('LoginController',function($scope, $location, A
 });
 
 
+=======
+});
+>>>>>>> Stashed changes
