@@ -31,7 +31,6 @@ angular.module("app").controller('LoginController',function($scope, $location, A
     }
 
 
-<<<<<<< Updated upstream
   $scope.register = function() {
     $location.path('/register');
   };
@@ -39,6 +38,3 @@ angular.module("app").controller('LoginController',function($scope, $location, A
 });
 
 
-=======
-});
->>>>>>> Stashed changes
