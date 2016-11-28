@@ -15,7 +15,7 @@ module Api::V1
 		@role = Role.find_by(id: @current_user.role.id);
 
 		#implement permissions
-		if @role.name == 'manger'
+		if @role.name == 'manager'
 			if params[:action] == 'destroy'
 				render :status => :forbidden, :json => 'Only admins can destroy'
 			end
