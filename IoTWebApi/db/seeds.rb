@@ -6,18 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-##############################
-######   rails db:seed #######
-##############################
+##########################################################################################
+# rails db:seed 		-	Comando para carregar as seeds
+# rails db:schema:dump	-	Comando para limpar o esquema todo da BD (tudo)
+# rails db:schema:load 	-	Comando para carregar o esquema da BD
+##########################################################################################
+
 
 User.delete_all
 Role.delete_all
 
-School.delete_all
-Course.delete_all
 Room.delete_all
+Course.delete_all
 Degree.delete_all
+School.delete_all
 
+puts ""
 puts "######### Apagou com sucesso os dados anteriores ##########"
 
 #@s = School.create(name:'IPT', country:'teste', distric:'teste',  city:'teste', county:'teste', postCode:'teste', addressDetails:'teste')
