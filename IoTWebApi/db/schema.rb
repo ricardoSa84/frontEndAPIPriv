@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 20161128225046) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.integer  "school_id"
+    t.integer  "degree_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["degree_id"], name: "index_courses_on_degree_id"
     t.index ["school_id"], name: "index_courses_on_school_id"
   end
 
@@ -36,8 +38,10 @@ ActiveRecord::Schema.define(version: 20161128225046) do
     t.string   "description"
     t.boolean  "projector"
     t.integer  "seats"
+    t.integer  "school_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["school_id"], name: "index_rooms_on_school_id"
   end
 
   create_table "schools", force: :cascade do |t|

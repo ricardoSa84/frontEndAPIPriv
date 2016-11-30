@@ -4,6 +4,7 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.string :description
       t.boolean :projector
       t.integer :seats
+      t.references :school, foreign_key: true
 
       t.timestamps
     end
