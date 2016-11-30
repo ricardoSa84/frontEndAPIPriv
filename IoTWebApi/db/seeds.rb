@@ -26,8 +26,11 @@ puts "######### Apagou com sucesso os dados anteriores ##########"
 
 #@s = School.create(name:'IPT', country:'teste', distric:'teste',  city:'teste', county:'teste', postCode:'teste', addressDetails:'teste')
 #@s.courses.create(name:'teste1')
-#@r = Role.create(name: 'Admin')
-#@r.users.create(name: 'teste', email: 'teste', password:'teste')
+@r1 = Role.create(name: 'Manager')
+@r2 = Role.create(name: 'User')
+@r3 = Role.create(name: 'Admin')
+
+@r1.users.create(name: 'teste', email: 'teste', password:'teste')
 
 puts "#################### Adicionar escolas ####################"
 
