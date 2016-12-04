@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  belongs_to :role
+  belongs_to :role ,  optional: true
   
+  #accepts_nested_attributes_for :role
+
 	  # Assign an API key on create
   before_create do |user|
     user.api_key = user.generate_api_key
@@ -13,6 +15,4 @@ class User < ApplicationRecord
       break token unless User.exists?(api_key: token)
     end
   end
-
-  
 end

@@ -19,7 +19,7 @@ module Api::V1
     @school = School.new(school_params)
 
     if @school.save
-      render json: @school, status: :created, location: @school
+      render json: @school, status: :created#, location: @school
     else
       render json: @school.errors, status: :unprocessable_entity
     end
