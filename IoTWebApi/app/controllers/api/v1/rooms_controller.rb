@@ -1,5 +1,5 @@
 module Api::V1
-  class RoomsController < ApplicationController
+  class RoomsController < ApiController
     before_action :set_room, only: [:show, :update, :destroy]
 
     # GET /rooms
