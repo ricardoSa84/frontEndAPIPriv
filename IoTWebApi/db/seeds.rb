@@ -304,7 +304,8 @@ puts "#################### Adicionar  cursos ####################"
 
 puts "################## Carregado com sucesso ##################"
 
-
+@d.disciplines.create(name:'Álgebra', course: [Course.find(user: 'Engenharia Informática')])
+####[Role.seed(:user)])teste
 
 ####### DEBUG TIME #######
 #puts @r1.course.to_yaml

@@ -1,5 +1,5 @@
 module Api::V1
-  class DegreesController < ApplicationController
+  class DegreesController < ApiController
     before_action :set_degree, only: [:show, :update, :destroy]
 
     # GET /degrees
