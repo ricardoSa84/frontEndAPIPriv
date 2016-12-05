@@ -8,6 +8,9 @@ angular.module("app").factory("SessionService", function() {
     },
     unset: function(key) {
       return sessionStorage.removeItem(key);
+    },
+    getArray: function(){
+      return sessionStorage;
     }
   };
 });

@@ -1,4 +1,4 @@
-angular.module("app").config(function($routeProvider, $locationProvider) {
+angular.module('app').config(function($routeProvider, $locationProvider) {
 
   $locationProvider.html5Mode({enabled:false});
 
@@ -7,6 +7,14 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     controller: 'LoginController'
   });
 
+    $routeProvider.when('/login/:token', {
+    templateUrl: 'login.html',
+    controller: 'paramController',
+    params: {
+          token: 'token'
+        }
+  });
+    
   $routeProvider.when('/home', {
     templateUrl: 'home.html',
     controller: 'HomeController'

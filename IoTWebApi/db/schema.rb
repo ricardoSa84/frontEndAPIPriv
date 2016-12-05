@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122152743) do
+ActiveRecord::Schema.define(version: 20161129124634) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -41,12 +41,11 @@ ActiveRecord::Schema.define(version: 20161122152743) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "api_key"
     t.string   "password"
-    t.index ["role_id"], name: "index_users_on_role_id"
+    t.string   "resetToken"
   end
 
 end

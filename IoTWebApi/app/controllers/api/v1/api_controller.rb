@@ -2,8 +2,8 @@ module Api::V1
   class ApiController < ApplicationController
     # Generic API stuff here
 
-	before_action :authenticate #, :except => [:login,:logout]
-	before_action :autorize
+	#before_action :authenticate #, :except => [:login,:logout]
+	#before_action :autorize
 
 
 	def autorize
@@ -39,7 +39,7 @@ module Api::V1
   	def login
   		#Rails.logger.debug  params[:username]
   		#Rails.logger.debug  params[:password]
-  		@user =	User.find_by(name: params[:username], password: params[:password])
+  		@user =	User.find_by(email: params[:username], password: params[:password])
 		#Rails.logger.debug @user
   	   	if @user.nil?
   	   		render :status => :forbidden, :plain => "Authentication credentials provided were invalid"	     	
