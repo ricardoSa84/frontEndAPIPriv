@@ -1,19 +1,18 @@
-<div id="Register" class="row" ng-init="getCredentials()">
+<div id="Register" class="row">
   <div class="large-6 large-offset-3">
     <div class="alert-box">{{ message }}</div>
     <form ng-submit="register()">
       <fieldset class="radius">
         <div class="row">
           <div class="large-3 columns">
-            <input type="text" name="username" placeholder="username" ng-model="credentials.name"  required/>
+            <input type="text" name="username" placeholder="username" ng-model="credentialsRegister.user.name"  required/>
           </div>
             <div class="large-3 columns">
-              <input type="text" name="password" placeholder="password" ng-model="credentials.password" required/>
+              <input type="text" name="password" placeholder="password" ng-model="credentialsRegister.user.password" required/>
           </div>
             <div class="large-3 columns">
-              <input type="text" name="email" placeholder="email" ng-model="credentials.email" required/>
+              <input type="text" name="email" placeholder="email" ng-model="credentialsRegister.user.email" required/>
           </div>
-
           <div class="large-12 columns">
             <button id="submit" type="submit" class="button large expand radius">Submit</button>
           </div>

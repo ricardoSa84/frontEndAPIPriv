@@ -1,8 +1,8 @@
 module Api::V1
   class ApiController < ApplicationController
     # Generic API stuff here
-
-	before_action :authenticate, :except => [:login]
+	
+	before_action :authenticate #, :except => [:login,:logout]
 	before_action :autorize
 
 
@@ -15,11 +15,11 @@ module Api::V1
 		@role = Role.find_by(id: @current_user.role.id);
 
 		#implement permissions
-		if @role.name == 'manger'
+		if @role.name == 'Manager'
 			if params[:action] == 'destroy'
 				render :status => :forbidden, :json => 'Only admins can destroy'
 			end
-		elsif @role.name == 'user'
+		elsif @role.name == 'User'
 			if params[:action] == 'destroy'
 				render :status => :forbidden, :json => 'Only admins can destroy'
 			elsif params[:action] == 'create'

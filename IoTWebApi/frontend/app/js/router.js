@@ -17,7 +17,6 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     controller: 'RegisterController'
   });
 
-
   $routeProvider.when('/$resource/list-of-books', {
     templateUrl: 'books_resource.html',
     controller: 'BooksResourceController'

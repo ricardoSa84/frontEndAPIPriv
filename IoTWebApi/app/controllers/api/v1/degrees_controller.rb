@@ -19,7 +19,7 @@ module Api::V1
       @degree = Degree.new(degree_params)
 
       if @degree.save
-        render json: @degree, status: :created, location: @degree
+        render json: @degree, status: :created#, location: @degree
       else
         render json: @degree.errors, status: :unprocessable_entity
       end
