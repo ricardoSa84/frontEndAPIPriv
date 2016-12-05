@@ -1,25 +1,20 @@
-angular.module("app").controller('LoginController',function($scope, $location, AuthenticationService,SessionService) {
-  
-if(AuthenticationService.isLoggedIn()){
-     $location.path('/home');
-  }
 
+    angular.module("app").controller('paramsController',function($scope, $location,$routeParams, AuthenticationService,SessionService) {
+  
    var cacheSession   = function() {
     SessionService.set('authenticated', true);
-    console.log(SessionService.getArray());
   };
 
   $scope.credentials = { username: "", password: "" };
-  $scope.message = "Hello!!";
+  $scope.message = 'Olá';
+  //$scope.token = $routeParams.token;
 
   var onLoginSuccess = function(data) {
     //$scope.message = "Token : " + data.token;
-    console.log("!Cached");
-    cacheSession();
-    console.log("cached");
+    cacheSession
     $scope.token = data.token;
     $scope.setCredentials();
-    $location.path('/home');
+    //$location.path('/home');
   };
   
   var onLoginError = function(data) {
@@ -37,11 +32,19 @@ if(AuthenticationService.isLoggedIn()){
       AuthenticationService.setCredentials(cred);
     }
 
+  $scope.isLoggedIn = function() {
+    return SessionService.get('authenticated');
+  };
+
 
   $scope.register = function() {
     $location.path('/register');
   };
 
+  $scope.$on('$routeChangeSuccess', function() {
+    // $routeParams will be populated here if
+    // this controller is used outside ng-view
+    $scope.message = $routeParams.token;
+  });
+
 });
-
-

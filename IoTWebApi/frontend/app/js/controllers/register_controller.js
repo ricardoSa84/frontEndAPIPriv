@@ -1,6 +1,6 @@
 angular.module("app").controller('RegisterController',function($scope, $location, AuthenticationService) {
   
-  $scope.credentialsRegister = { user:{ name: "", password: "", email: ""}};
+  $scope.credentialsRegister = { user:{ name: "",surname: "", password: "", email: ""}};
 
   var onRegisterSuccess = function(data) {
     $location.path('/login');

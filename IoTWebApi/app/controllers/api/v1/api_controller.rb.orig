@@ -1,9 +1,15 @@
 module Api::V1
   class ApiController < ApplicationController
     # Generic API stuff here
-	
+<<<<<<< HEAD
+
 	#before_action :authenticate #, :except => [:login,:logout]
 	#before_action :autorize
+=======
+	
+	before_action :authenticate #, :except => [:login,:logout]
+	before_action :autorize
+>>>>>>> master
 
 
 	def autorize

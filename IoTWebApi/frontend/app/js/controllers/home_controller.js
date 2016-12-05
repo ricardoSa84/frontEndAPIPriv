@@ -1,12 +1,16 @@
 angular.module("app").controller('HomeController', function($scope, $location, AuthenticationService,SessionService) {
   $scope.title = "Home";
+  if(!AuthenticationService.isLoggedIn()){
+     $location.path('/login');
+  }
   //$scope.message = "Mouse Over these images to see a directive at work";
-  var uncacheSession = function(response) {
+  function uncacheSession (response) {
     SessionService.unset('authenticated');
   };
 
   var onLogoutSuccess = function(response) {
-    uncacheSession
+    uncacheSession();
+    console.log("uncached");
     $location.path('/login');
   };
 
@@ -16,6 +20,10 @@ angular.module("app").controller('HomeController', function($scope, $location, A
 
   $scope.getCredentials = function() {
      $scope.credentials = AuthenticationService.getCredentials();
+  };
+
+  $scope.redirect = function() {
+    $location.path('/manageUsers');
   };
 
 });

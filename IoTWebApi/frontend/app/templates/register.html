@@ -1,7 +1,7 @@
 <div id="Register" class="row">
   <div class="large-6 large-offset-3">
     <div class="alert-box">{{ message }}</div>
-    <form ng-submit="register()">
+    <form name="registerForm" ng-submit="register()">
       <fieldset class="radius">
         <div class="row">
           <div class="large-3 columns">
@@ -10,11 +10,17 @@
             <div class="large-3 columns">
               <input type="text" name="password" placeholder="password" ng-model="credentialsRegister.user.password" required/>
           </div>
+          <div class="large-3 columns">
+              <input type="text" name="password" placeholder="password" ng-pattern="\b{{credentialsRegister.user.password}}\b" required/>
+          </div>
             <div class="large-3 columns">
               <input type="text" name="email" placeholder="email" ng-model="credentialsRegister.user.email" required/>
           </div>
+            <div class="large-3 columns">
+              <input type="text" name="email" placeholder="surname" ng-model="credentialsRegister.user.surname" required/>
+          </div>
           <div class="large-12 columns">
-            <button id="submit" type="submit" class="button large expand radius">Submit</button>
+            <button id="submit" type="submit" class="button large expand radius" ng-disabled="registerForm.$invalid">Submit</button>
           </div>
         </div>
       </fieldset>
