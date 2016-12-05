@@ -33,6 +33,8 @@ module Api::V1
     @name = user_params[:name];
     @email = user_params[:email];
     @password = user_params[:password];
+    #adicionar surname
+
 
     if @user.update(name: @name , email:@email , password: @password , role:@r)
       render json: @user
@@ -56,7 +58,7 @@ module Api::V1
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:id, :name, :email, :password,  :role => [:id] )
+      params.require(:user).permit(:id, :name, :surname, :email, :password, :role => [:id] )
     end
   end
 end
