@@ -19,6 +19,7 @@ module Api::V1
     @user = User.new(user_params)
 
     if @user.save
+      UserMailer.mailRegisto(@user).deliver_now
       render json: @user ,status: :created #, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
