@@ -18,6 +18,10 @@ angular.module("app").controller('HomeController', function($scope, $location, A
      $scope.credentials = AuthenticationService.getCredentials();
   };
 
+  $scope.redirect = function() {
+    $location.path('/manageUsers');
+  };
+
 });
 
 

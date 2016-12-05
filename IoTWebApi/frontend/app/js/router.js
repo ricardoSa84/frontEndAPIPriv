@@ -11,6 +11,11 @@ angular.module("app").config(function($routeProvider, $locationProvider) {
     templateUrl: 'home.html',
     controller: 'HomeController'
   });
+  
+  $routeProvider.when('/manageUsers', {
+    templateUrl: 'manageUsers.html',
+    controller: 'ManageUsersController'
+  });
 
   $routeProvider.when('/register', {
     templateUrl: 'register.html',

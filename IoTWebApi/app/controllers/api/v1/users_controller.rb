@@ -27,7 +27,14 @@ module Api::V1
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
+
+    @r =  Role.find( user_params[:role][:id] )
+
+    @name = user_params[:name];
+    @email = user_params[:email];
+    @password = user_params[:password];
+
+    if @user.update(name: @name , email:@email , password: @password , role:@r)
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -37,6 +44,8 @@ module Api::V1
   # DELETE /users/1
   def destroy
     @user.destroy
+    #returns the object destroyed
+    render json: @user
   end
 
   private
@@ -47,7 +56,7 @@ module Api::V1
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:id, :name, :email, :password,  :role => [:id] )
     end
   end
 end
