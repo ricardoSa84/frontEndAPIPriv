@@ -16,19 +16,7 @@ module Api::V1
 
   # POST /courses
   def create
-    #@course = Course.new(course_params)
-    #takes que school to create a course
-    #@aux = course_params.except(:school)
-    #@course = @s.courses.create(@aux)
-
-    #gets the school id
-    @s = School.find( course_params[:school][:id] )
-    #gets the degree id
-    @d = Degree.find( course_params[:degree][:id] )
-    #gets the name
-    @name = course_params[:name]
-    #Creates the course
-    @course = Course.create(name:@name, degree: @d, school: @s )  
+    @course = Course.new(course_params)
     #saves the course
    if @course.save
       render json: @course, status: :created #, location: @course
@@ -39,14 +27,7 @@ module Api::V1
 
   # PATCH/PUT /courses/1
   def update
-    #gets the school id
-    @s = School.find( course_params[:school][:id] )
-    #gets the degree id
-    @d = Degree.find( course_params[:degree][:id] )
-    #gets the name
-    @name = course_params[:name]
-    #updates the course
-    if @course.update(name:@name, degree: @d, school: @s)
+    if @course.update(course_params)
       render json: @course
     else
       render json: @course.errors, status: :unprocessable_entity
@@ -67,7 +48,6 @@ module Api::V1
     # Only allow a trusted parameter "white list" through.
     def course_params
       params.require(:course).permit(:name, :school => [:id], :degree => [:id] )
-      #params.require(:course).permit(:name, :school_attributes => [:id, :name] )
     end
   end
 end

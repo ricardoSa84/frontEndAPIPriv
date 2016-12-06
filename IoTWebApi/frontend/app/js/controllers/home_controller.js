@@ -15,7 +15,9 @@ angular.module("app").controller('HomeController', function($scope, $location, A
   };
 
   $scope.logout = function() {
-    AuthenticationService.logout().success(onLogoutSuccess);
+    uncacheSession();
+    console.log("uncached");
+    $location.path('/login');
   };
 
   $scope.getCredentials = function() {
