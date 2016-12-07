@@ -2,8 +2,8 @@ module Api::V1
   class ApiController < ApplicationController
     # Generic API stuff here
 	
-	#before_action :authenticate #, :except => [:login,:logout]
-	#before_action :autorize
+	before_action :authenticate 
+	before_action :autorize
 
 
 	def autorize
@@ -12,7 +12,7 @@ module Api::V1
 			@current_user = User.find_by(id: 1);
 		end 
 		#get the role associated with the user
-		@role = Role.find_by(id: @current_user.role.id);
+		@role = Role.find(@current_user.role.id);
 
 		#implement permissions
 		if @role.name == 'Manager'
@@ -48,8 +48,5 @@ module Api::V1
 	    end
  	end
 
-	def logout
-	 	render json:{ message: 'logging out!'}
-	end
   end
 end

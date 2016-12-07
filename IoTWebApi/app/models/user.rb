@@ -1,7 +1,17 @@
 class User < ApplicationRecord
   belongs_to :role ,  optional: true
   
-  #accepts_nested_attributes_for :role
+
+  #overrides the sets
+  def role=(params)
+    @role = Role.find( params[:id])    
+    super(@role) 
+  end
+  #Overrides the Gets
+  def role  
+    super
+  end
+
 
 	  # Assign an API key on create
   before_create do |user|

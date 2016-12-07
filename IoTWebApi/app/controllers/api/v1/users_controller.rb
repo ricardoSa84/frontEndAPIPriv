@@ -16,8 +16,7 @@ module Api::V1
 
   # POST /users
   def create
-    @user = User.new(user_params)
-
+    @user = User.new(user_params)  
     if @user.save
       UserMailer.mailRegisto(@user).deliver_now
       render json: @user ,status: :created #, location: @user
@@ -28,16 +27,8 @@ module Api::V1
 
   # PATCH/PUT /users/1
   def update
-
-    @r =  Role.find( user_params[:role][:id] )
-
-    @name = user_params[:name];
-    @email = user_params[:email];
-    @password = user_params[:password];
+    if @user.update(user_params)
     @surname = user_params[:surname];
-
-
-    if @user.update(name: @name , email:@email , password: @password , role:@r)
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
