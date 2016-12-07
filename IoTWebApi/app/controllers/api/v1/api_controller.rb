@@ -2,8 +2,8 @@ module Api::V1
   class ApiController < ApplicationController
     # Generic API stuff here
 	
-	before_action :authenticate 
-	before_action :autorize
+	#before_action :authenticate 
+	#before_action :autorize
 
 
 	def autorize
@@ -44,7 +44,7 @@ module Api::V1
   	   	if @user.nil?
   	   		render :status => :forbidden, :plain => "Authentication credentials provided were invalid"	     	
 	    else
-	    	render json:{ token: @user.api_key, id: @user.id}
+	    	render json: @user
 	    end
  	end
 

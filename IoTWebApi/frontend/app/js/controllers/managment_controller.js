@@ -1,14 +1,14 @@
-angular.module("app").controller('managmentController', function($scope, $location, AuthenticationService,SessionService,ManageUserService) {
+angular.module("app").controller('managmentController', function($scope, $location, SessionService,ManageUserService) {
 
   $scope.title = "Home";
   $scope.credentials ={};
 
 
   $scope.isAuth = function() {
-    if(!AuthenticationService.isLoggedIn()){
+    if(!SessionService.isLoggedIn()){
         $location.path('/login');
     }else{
-       var id = AuthenticationService.getLoggedID();
+       var id = SessionService.getLoggedID();
        onGetLoggedIDSuccess(id);
     }
   }
@@ -20,8 +20,8 @@ angular.module("app").controller('managmentController', function($scope, $locati
   }; 
 
   var onGetUserSuccess = function(data) {
-     $scope.credentials.username = data.name
-     $scope.credentials.password = data.email;
+     $scope.credentials = data;
+     console.log($scope.credentials);
      $scope.message = "Sucesso...";
   };
   var onGetUserError = function(data) {
@@ -29,7 +29,7 @@ angular.module("app").controller('managmentController', function($scope, $locati
   };  
 
   function uncacheSession (response) {
-    SessionService.unset('authenticated');
+    SessionService.unsetSession();
   };
 
 
