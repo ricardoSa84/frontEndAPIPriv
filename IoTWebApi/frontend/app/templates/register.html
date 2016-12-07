@@ -11,7 +11,7 @@
               <input type="text" name="password" placeholder="password" ng-model="credentialsRegister.user.password" required/>
           </div>
           <div class="large-3 columns">
-              <input type="text" name="password" placeholder="password" ng-pattern="\b{{credentialsRegister.user.password}}\b" required/>
+              <input type="text" name="password" placeholder="password" ng-model="credentialsRegister.user.password1"  ng-pattern="{{credentialsRegister.user.password}}" required/>
           </div>
             <div class="large-3 columns">
               <input type="text" name="email" placeholder="email" ng-model="credentialsRegister.user.email" required/>

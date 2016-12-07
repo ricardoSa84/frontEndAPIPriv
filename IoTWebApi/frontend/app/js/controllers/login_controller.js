@@ -41,6 +41,10 @@ if(AuthenticationService.isLoggedIn()){
   $scope.register = function() {
     $location.path('/register');
   };
+  
+  $scope.passRecovery = function() {
+    $location.path('/passRecovery');
+  };
 
 });
 

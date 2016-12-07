@@ -42,7 +42,9 @@ angular.module("app").controller('managmentController', function($scope, $locati
   $scope.redirect = function() {
     $location.path('/manageUsers');
   };
+  $scope.changePassword = function() {
+    $location.path('/changePassword');
+  };
 
 });
-
 
