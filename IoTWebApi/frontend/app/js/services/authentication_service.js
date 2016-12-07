@@ -10,21 +10,19 @@ var credentials = {};
       return $http.post('/v1/users',credentials);
     },
     getCredentials: function () {
-
-  console.log("cred: " + credentials);
         return credentials;
     },
     setCredentials: function(value) {
         credentials = value;
     },
     isLoggedIn() {
-    return SessionService.get('authenticated');
+      return SessionService.get('authenticated');
     },
     getLoggedID() {
-    return SessionService.get('loggedID');
+      return SessionService.get('loggedID');
     },
     setLoggedID(id) {
-    return SessionService.set('loggedID',id);
+      return SessionService.set('loggedID',id);
     }
   };
 });
