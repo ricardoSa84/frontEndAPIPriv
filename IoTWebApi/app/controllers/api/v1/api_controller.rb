@@ -44,7 +44,7 @@ module Api::V1
   	   	if @user.nil?
   	   		render :status => :forbidden, :plain => "Authentication credentials provided were invalid"	     	
 	    else
-	    	render json:{ token: @user.api_key}
+	    	render json:{ token: @user.api_key, id: @user.id}
 	    end
  	end
 

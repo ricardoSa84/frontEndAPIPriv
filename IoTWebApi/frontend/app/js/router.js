@@ -15,9 +15,9 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
         }
   });
     
-  $routeProvider.when('/home', {
-    templateUrl: 'home.html',
-    controller: 'HomeController'
+  $routeProvider.when('/managment', {
+    templateUrl: 'managment.html',
+    controller: 'managmentController'
   });
   
   $routeProvider.when('/manageUsers', {

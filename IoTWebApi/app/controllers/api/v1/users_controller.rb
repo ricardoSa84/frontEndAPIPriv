@@ -34,7 +34,7 @@ module Api::V1
     @name = user_params[:name];
     @email = user_params[:email];
     @password = user_params[:password];
-    #adicionar surname
+    @surname = user_params[:surname];
 
 
     if @user.update(name: @name , email:@email , password: @password , role:@r)
@@ -54,7 +54,7 @@ module Api::V1
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+        @user = User.find(params[:id])   
     end
 
     # Only allow a trusted parameter "white list" through.

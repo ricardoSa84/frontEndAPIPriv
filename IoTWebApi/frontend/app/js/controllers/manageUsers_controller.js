@@ -1,4 +1,4 @@
-angular.module("app").controller('ManageUsersController',function($scope, $location, ManageUserService) {
+ angular.module("app").controller('ManageUsersController',function($scope, $location, ManageUserService) {
 
   $scope.usersRoles = {};
   $scope.roles = {};
@@ -18,8 +18,7 @@ angular.module("app").controller('ManageUsersController',function($scope, $locat
   $scope.getRoles = function() {
      ManageUserService.getRoles().success(onGetRolesSuccess);    
   };
-
-  //--UpdateUsers
+   //--UpdateUsers
   $scope.updateUser = function(user,rId) {
     //para susbtituir pelo ngenable ou ngif
     if(rId){

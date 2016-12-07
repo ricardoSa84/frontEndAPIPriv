@@ -14,9 +14,11 @@ ActiveRecord::Schema.define(version: 20161129124634) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
+    t.integer  "degree_id"
     t.integer  "school_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["degree_id"], name: "index_courses_on_degree_id"
     t.index ["school_id"], name: "index_courses_on_school_id"
   end
 
@@ -62,6 +64,7 @@ ActiveRecord::Schema.define(version: 20161129124634) do
     t.string   "api_key"
     t.string   "password"
     t.string   "resetToken"
+    t.string   "surname"
   end
 
 end

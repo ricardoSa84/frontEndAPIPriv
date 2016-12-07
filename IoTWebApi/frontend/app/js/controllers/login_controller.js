@@ -1,7 +1,7 @@
 angular.module("app").controller('LoginController',function($scope, $location, AuthenticationService,SessionService) {
   
 if(AuthenticationService.isLoggedIn()){
-     $location.path('/home');
+     $location.path('/managment');
   }
 
    var cacheSession   = function() {
@@ -9,17 +9,17 @@ if(AuthenticationService.isLoggedIn()){
     console.log(SessionService.getArray());
   };
 
-  $scope.credentials = { username: "", password: "" };
+  $scope.credentials = { username: "", password: ""};
   $scope.message = "Hello!!";
 
   var onLoginSuccess = function(data) {
     //$scope.message = "Token : " + data.token;
-    console.log("!Cached");
     cacheSession();
-    console.log("cached");
     $scope.token = data.token;
     $scope.setCredentials();
-    $location.path('/home');
+    $scope.credentials.id=data.id;
+    AuthenticationService.setLoggedID(data.id);
+    $location.path('/managment');
   };
   
   var onLoginError = function(data) {
