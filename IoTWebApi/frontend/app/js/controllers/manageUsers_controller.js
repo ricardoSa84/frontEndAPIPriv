@@ -28,8 +28,10 @@
     }
   };
   var onUpdateUserSuccess = function(data) {
-     $scope.message = "User updated with success with the ID = " + data.id
+      //update frontEnd
+     $scope.message = "Updated with success User with the ID = " + data.id
   };
+
   var onUpdateUserError = function(data) {
      $scope.message = data.exception;
   };
@@ -60,6 +62,23 @@
   };
 
 
+
+  //Pagination 
+
+    $scope.currentPage = 0;
+    $scope.pageSize = 6;
+    $scope.numberOfPages=function(){
+        return Math.ceil($scope.usersRoles.length/$scope.pageSize);
+    };
+
 });
 
+//http://jsfiddle.net/2ZzZB/56/
+angular.module("app").filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        if(input.length > 0)
+          return input.slice(start);
+    }
+});
 
