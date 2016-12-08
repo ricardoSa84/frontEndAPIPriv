@@ -27,15 +27,39 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  #config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.perform_caching = false
+  #config.action_mailer.perform_caching = false
+
+
+  #configs on the mail also
+  #http://stackoverflow.com/questions/27586940/ruby-gmail-uncaught-exception-534-5-7-14-https-accounts-google-com-continue
+  config.action_mailer.perform_deliveries = true 
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address        => "smtp.gmail.com",
+    :port           => 587,
+    :domain         => "gmail.com",
+    :user_name      => "mei.internetofthings@gmail.com",
+    :password       => "meiiotes",
+    :authentication => :plain,
+    :enable_starttls_auto => true  
+  }
+
+
+
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
+
+
+
+
 
 
   # Raises error for missing translations

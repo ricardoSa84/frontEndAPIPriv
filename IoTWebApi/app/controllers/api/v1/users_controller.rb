@@ -18,7 +18,8 @@ module Api::V1
   def create
     @user = User.new(user_params)  
     if @user.save
-      UserMailer.mailRegisto(@user).deliver_now
+      #deliver_later will execute your method from the background job.
+      UserMailer.mailRegisto(@user).deliver_later   
       render json: @user ,status: :created #, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
