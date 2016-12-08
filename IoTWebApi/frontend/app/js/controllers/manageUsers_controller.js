@@ -61,10 +61,7 @@
       $location.path('/managment/'+id);     
   };
 
-
-
   //Pagination 
-
     $scope.currentPage = 0;
     $scope.pageSize = 6;
     $scope.numberOfPages=function(){
