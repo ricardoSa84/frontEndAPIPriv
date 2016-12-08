@@ -34,7 +34,7 @@
      $scope.message = data.exception;
   };
 
-  //--UpdateUsers
+  //--Deletes user Button
   $scope.deleteUser = function(user) {
     //deletes the object on server side
     ManageUserService.deleteUser(user.id).success(onDeleteUserSuccess).error(onDeleteUserError);
@@ -51,6 +51,12 @@
   };
   var onDeleteUserError = function(data) {
     $scope.message = data.exception;
+  };
+
+  //View user Button
+  $scope.viewUser = function(user) {
+      var id = user.id;
+      $location.path('/managment/'+id);     
   };
 
 

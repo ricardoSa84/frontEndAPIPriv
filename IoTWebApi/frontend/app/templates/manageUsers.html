@@ -24,7 +24,7 @@
                   <option ng-repeat="role in roles" value="{{role.id}}" ng-selected="user.role.name == role.name">{{role.name}}</option>
             </select>
             </td>
-            <td><button class="btn btn-danger btn-block" ng-click="">View</button></td>
+            <td><button class="btn btn-danger btn-block" ng-click="viewUser(user)">View</button></td>
             <td><button class="btn btn-danger btn-block" ng-click="updateUser(user,newRole)" >Update</button></td>
             <td><button class="btn btn-danger btn-block" ng-click="deleteUser(user)">Delete</button></td>
           </tr>
