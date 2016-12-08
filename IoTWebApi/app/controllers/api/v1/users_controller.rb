@@ -1,6 +1,6 @@
 module Api::V1
   class UsersController < ApiController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy, :resetApiToken]
 
   # GET /users
   def index
@@ -29,7 +29,6 @@ module Api::V1
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-    @surname = user_params[:surname];
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -41,6 +40,16 @@ module Api::V1
     @user.destroy
     #returns the object destroyed
     render json: @user
+  end
+
+  def resetApiToken
+    #resets the apikey
+    @user.api_key = @user.generate_api_key
+    if @user.save
+      render json: @user 
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
   private

@@ -1,5 +1,5 @@
 angular.module("app").factory('AuthenticationService', function($http,SessionService ) {
-  // these routes map to stubbed API endpoints in config/server.js
+  
 var credentials = {};
 
   return {
