@@ -2,8 +2,8 @@ module Api::V1
   class ApiController < ApplicationController
     # Generic API stuff here
 	
-	#before_action :authenticate 
-	#before_action :autorize
+	before_action :authenticate 
+	before_action :autorize
 
 
 	def autorize
