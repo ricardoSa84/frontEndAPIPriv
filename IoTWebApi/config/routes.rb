@@ -6,7 +6,7 @@ scope module: 'api' do
 
 		  	post 'login' => 'api#login'
 		  	post 'logout' => 'api#logout'
-
+		  	match 'resetApiToken/:id' => 'users#resetApiToken', via: [:get]
 
 			resources :users
 

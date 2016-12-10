@@ -1,4 +1,4 @@
-<div id="login" class="row">
+<div id="login" class="row" ng-init="isAuth()">
   <div class="large-6 large-offset-3">
     <div class="alert-box">{{ message }}</div>
     <form ng-submit="login()">
@@ -21,6 +21,7 @@
     </form>
     <div class="large-12 columns">
       <button id="register" type="submit" class="button large expand radius" ng-click="register()">Register</button>
+      <button id="register" type="submit" class="button large expand radius" ng-click="passRecovery()">Password Recovery</button>
     </div>
     <h1>{{token}}</h1>
   </div>

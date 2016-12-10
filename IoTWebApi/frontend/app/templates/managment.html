@@ -1,0 +1,34 @@
+<div id="managment" class="row" ng-init="isAuth();getUser()">
+  <div class="large-6 large-offset-3">
+    <div class="alert-box">{{ message }}</div>
+     <div class="row">          
+    <form ng-submit="logout()">
+      <fieldset class="radius">
+        <div class="row">
+          <div class="large-3 columns">
+            <input type="text" name="name" placeholder="name" ng-model="credentials.name"  />
+          </div>
+          <div class="large-3 columns">
+            <input type="text" name="surname" placeholder="surname" ng-model="credentials.surname"  />
+          </div>
+            <div class="large-3 columns">
+              <input type="text" name="email" placeholder="email" ng-model="credentials.email" />
+          </div>
+            <div class="large-3 columns">
+              <input type="text" name="api_key" placeholder="api_key" ng-model="credentials.api_key" />
+              <button id="btn_resetToken" type="button" class="button" ng-click="resetToken()">ResetToken</button>
+          </div>
+        </div>  
+         <div class="row">
+          <div class="large-12 columns">
+            <button id="log-out" type="submit" class="button large expand radius" ng-click="logout()">Log out</button>
+          </div>
+        </div>      
+      </fieldset>
+    </form>
+    <div class="large-12 columns">
+      <button id="log-in" type="submit" class="button large expand radius" ng-click="redirect()">Manage</button>
+      <button id="btn_changePassword" type="submit" class="button large expand radius" ng-click="changePassword()">Change Password</button>
+    </div>
+  </div>
+</div>

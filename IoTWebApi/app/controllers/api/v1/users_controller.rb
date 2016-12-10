@@ -1,6 +1,6 @@
 module Api::V1
   class UsersController < ApiController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy, :resetApiToken]
 
   # GET /users
   def index
@@ -16,10 +16,10 @@ module Api::V1
 
   # POST /users
   def create
-    @user = User.new(user_params)
-
+    @user = User.new(user_params)  
     if @user.save
-      UserMailer.mailRegisto(@user).deliver_now
+      #deliver_later will execute your method from the background job.
+      UserMailer.mailRegisto(@user).deliver_later   
       render json: @user ,status: :created #, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -28,16 +28,7 @@ module Api::V1
 
   # PATCH/PUT /users/1
   def update
-
-    @r =  Role.find( user_params[:role][:id] )
-
-    @name = user_params[:name];
-    @email = user_params[:email];
-    @password = user_params[:password];
-    #adicionar surname
-
-
-    if @user.update(name: @name , email:@email , password: @password , role:@r)
+    if @user.update(user_params)
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -51,10 +42,20 @@ module Api::V1
     render json: @user
   end
 
+  def resetApiToken
+    #resets the apikey
+    @user.api_key = @user.generate_api_key
+    if @user.save
+      render json: @user 
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+        @user = User.find(params[:id])   
     end
 
     # Only allow a trusted parameter "white list" through.

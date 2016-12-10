@@ -1,16 +1,22 @@
 angular.module("app").factory("SessionService", function() {
   return {
-    get: function(key) {
-      return sessionStorage.getItem(key);
+    setSession: function(authenticated) {
+      return sessionStorage.setItem('authenticated', authenticated);
     },
-    set: function(key, val) {
-      return sessionStorage.setItem(key, val);
-    },
-    unset: function(key) {
-      return sessionStorage.removeItem(key);
+    unsetSession: function() {
+      return sessionStorage.removeItem('authenticated');
     },
     getArray: function(){
       return sessionStorage;
+    },
+    isLoggedIn() {
+      return sessionStorage.getItem('authenticated');
+    },
+    getLoggedID() {
+      return sessionStorage.getItem('loggedID');
+    },
+    setLoggedID(val) {
+      return sessionStorage.setItem("loggedID", val);;
     }
   };
 });

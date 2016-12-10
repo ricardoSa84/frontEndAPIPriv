@@ -1,4 +1,4 @@
-angular.module("app").controller('ManageUsersController',function($scope, $location, ManageUserService) {
+ angular.module("app").controller('ManageUsersController',function($scope, $location, ManageUserService) {
 
   $scope.usersRoles = {};
   $scope.roles = {};
@@ -18,8 +18,7 @@ angular.module("app").controller('ManageUsersController',function($scope, $locat
   $scope.getRoles = function() {
      ManageUserService.getRoles().success(onGetRolesSuccess);    
   };
-
-  //--UpdateUsers
+   //--UpdateUsers
   $scope.updateUser = function(user,rId) {
     //para susbtituir pelo ngenable ou ngif
     if(rId){
@@ -29,13 +28,15 @@ angular.module("app").controller('ManageUsersController',function($scope, $locat
     }
   };
   var onUpdateUserSuccess = function(data) {
-     $scope.message = "User updated with success with the ID = " + data.id
+      //update frontEnd
+     $scope.message = "Updated with success User with the ID = " + data.id
   };
+
   var onUpdateUserError = function(data) {
      $scope.message = data.exception;
   };
 
-  //--UpdateUsers
+  //--Deletes user Button
   $scope.deleteUser = function(user) {
     //deletes the object on server side
     ManageUserService.deleteUser(user.id).success(onDeleteUserSuccess).error(onDeleteUserError);
@@ -54,7 +55,27 @@ angular.module("app").controller('ManageUsersController',function($scope, $locat
     $scope.message = data.exception;
   };
 
+  //View user Button
+  $scope.viewUser = function(user) {
+      var id = user.id;
+      $location.path('/managment/'+id);     
+  };
+
+  //Pagination 
+    $scope.currentPage = 0;
+    $scope.pageSize = 6;
+    $scope.numberOfPages=function(){
+        return Math.ceil($scope.usersRoles.length/$scope.pageSize);
+    };
 
 });
 
+//http://jsfiddle.net/2ZzZB/56/
+angular.module("app").filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        if(input.length > 0)
+          return input.slice(start);
+    }
+});
 

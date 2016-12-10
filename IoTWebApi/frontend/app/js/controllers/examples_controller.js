@@ -1,5 +1,7 @@
-angular.module("app").controller('HomeController',function($scope, $location) {
-  	$scope.message = "HomeCtrl";
+angular.module("app").controller('ExamplesController',function($scope, $location) {
+  
+
+  	$scope.message = "ExamplesCtrl";
 
 	$scope.login = function() {
 	    $location.path('/login');
@@ -13,6 +15,7 @@ angular.module("app").controller('HomeController',function($scope, $location) {
 	$scope.examples = function() {
 	    $location.path('/examples');
 	};
+
 
 });
 

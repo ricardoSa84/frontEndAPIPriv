@@ -14,24 +14,31 @@
             <th></th>
             <th></th>
           </tr>
-          <tr ng-repeat="user in usersRoles">
+          <tr ng-repeat="user in usersRoles | startFrom:currentPage*pageSize | limitTo:pageSize">
             <td><input type="text" name="userName" ng-model="user.name" required></td>
             <td><input type="text" name="email" ng-model="user.email" required></td>
             <!-- <td>{{user.role.name}}</td>      --> 
             <td>
             <select id="ddl_roles" class="form-control" ng-model="newRole">
                   <option value="">select a role</option> 
-                  <option ng-repeat="role in roles" value="{{role.id}}" ng-selected="user.role.name == role.name">{{role.name}}</option>
+                  <option ng-repeat="role in roles" value="{{role.id}}" ng-selected="user.role.id == role.id">{{role.name}}</option>
             </select>
             </td>
-            <td><button class="btn btn-danger btn-block" ng-click="">View</button></td>
+            <td><button class="btn btn-danger btn-block" ng-click="viewUser(user)">View</button></td>
             <td><button class="btn btn-danger btn-block" ng-click="updateUser(user,newRole)" >Update</button></td>
             <td><button class="btn btn-danger btn-block" ng-click="deleteUser(user)">Delete</button></td>
-          </tr>
-        </table>
 
-      </form>
-      
+          </tr>
+          <tr >
+            <td colspan="6">
+              <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">Previous</button>
+                {{currentPage+1}}/{{numberOfPages()}}
+              <button ng-disabled="currentPage >= usersRoles.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next</button>
+            </td>
+          </tr>
+
+        </table>
+      </form>      
     </div>
   </div>
 </div>

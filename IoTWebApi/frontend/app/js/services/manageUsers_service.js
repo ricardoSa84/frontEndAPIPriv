@@ -8,9 +8,15 @@ angular.module("app").factory('ManageUserService', function($http) {
     getRoles: function() {
       return $http.get('/v1/roles');
     },
+    getUser: function(id) {
+      return $http.get('/v1/users/'+ id);
+    },
     updateUser: function(user) {
       var id = user.user.id;
       return $http.put('/v1/users/'+ id, user);
+    },
+    resetApiKey: function(id) {
+      return $http.get('/v1/resetApiToken/'+ id);
     },
     deleteUser: function(id) {
       return $http.delete('/v1/users/'+ id);
