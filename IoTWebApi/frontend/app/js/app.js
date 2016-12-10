@@ -1,7 +1,5 @@
-angular.module("app", ["ngResource", "ngRoute"]).run(function($rootScope,$http) {
+angular.module("app", ["ngResource", "ngRoute"]).run(function($rootScope,$http,SessionService) {
   
-  //Adds headers for all $http requests
-  $http.defaults.headers.common["Authorization"] = "Token token=IOHwx9H1LwHDtKlcwMpyKgtt"
 
   $rootScope.log = function(thing) {
     console.log(thing);

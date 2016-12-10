@@ -2,6 +2,10 @@ module Api::V1
   class UsersController < ApiController
   before_action :set_user, only: [:show, :update, :destroy, :resetApiToken]
 
+  #only skip if action is create
+  skip_before_action :authenticate , :only => [:create]
+  skip_before_action :autorize, :only => [:create]
+
   # GET /users
   def index
     @users = User.all

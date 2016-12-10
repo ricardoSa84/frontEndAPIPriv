@@ -1,4 +1,8 @@
-angular.module('app').config(function($routeProvider, $locationProvider) {
+angular.module('app').config(function($routeProvider, $locationProvider,$httpProvider) {
+
+  //Push in to the httpProvider what we want
+  $httpProvider.interceptors.push('sessionInjector');
+
 
   $locationProvider.html5Mode({enabled:false});
 
