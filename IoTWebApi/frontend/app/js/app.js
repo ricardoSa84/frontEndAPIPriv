@@ -1,4 +1,4 @@
-angular.module("app", ["ngResource", "ngRoute"]).run(function($rootScope,$http,SessionService) {
+angular.module("app", ["ngResource", "ngRoute"]).run(function($rootScope,$http) {
   
 
   $rootScope.log = function(thing) {
