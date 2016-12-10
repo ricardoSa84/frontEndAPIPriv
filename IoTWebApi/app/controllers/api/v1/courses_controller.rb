@@ -34,24 +34,6 @@ module Api::V1
     end
   end
 
-  # DELETE /courses/1
-  def destroy
-    @course.destroy
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def course_params
-      params.require(:course).permit(:name, :school => [:id], :degree => [:id] )
-    end
-  end
-end
-  end
 
   # DELETE /courses/1
   def destroy

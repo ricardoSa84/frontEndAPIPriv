@@ -1,4 +1,4 @@
-angular.module("app").controller('managmentController', function($scope, $location,$routeParams, SessionService,ManageUserService) {
+angular.module("app").controller('managmentController', function($scope, $location,$routeParams, SessionService,AuthenticationService, ManageUserService) {
   $scope.credentials ={};
 
   //Authentication
@@ -39,7 +39,7 @@ angular.module("app").controller('managmentController', function($scope, $locati
 
   //Navigation----
   $scope.redirect = function() {
-    $location.path('/manageUsers');
+      $location.path('/manageUsers');
   };
   $scope.changePassword = function() {
     $location.path('/changePassword');
@@ -47,6 +47,10 @@ angular.module("app").controller('managmentController', function($scope, $locati
   $scope.logout = function() {
     SessionService.unsetSession();
     $location.path('/login');
+  };
+
+  $scope.isAdmin = function() {
+   return AuthenticationService.isAdmin(SessionService.getLoggedRole()) ;
   };
 
 });

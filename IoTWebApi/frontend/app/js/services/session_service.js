@@ -17,6 +17,18 @@ angular.module("app").factory("SessionService", function() {
     },
     setLoggedID(val) {
       return sessionStorage.setItem("loggedID", val);;
+    },
+    getLoggedToken() {
+      return sessionStorage.getItem('LoggedToken');
+    },
+    setLoggedToken(val) {
+      return sessionStorage.setItem("LoggedToken", val);;
+    },
+    getLoggedRole() {
+      return sessionStorage.getItem('LoggedRole');
+    },
+    setLoggedRole(val) {
+      return sessionStorage.setItem("LoggedRole", val);;
     }
   };
 });

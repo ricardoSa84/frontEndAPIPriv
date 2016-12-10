@@ -1,4 +1,16 @@
- angular.module("app").controller('ManageUsersController',function($scope, $location, ManageUserService) {
+ angular.module("app").controller('ManageUsersController',function($scope, $location, ManageUserService,SessionService,AuthenticationService) {
+
+
+  //Authentication
+  $scope.isAuth = function() {
+    if(!SessionService.isLoggedIn()){
+        $location.path('/login');
+    }
+  }
+  $scope.isAdmin = function() {
+    if(!AuthenticationService.isAdmin(SessionService.getLoggedRole()))
+      $location.path('/login');
+  };
 
   $scope.usersRoles = {};
   $scope.roles = {};
@@ -33,7 +45,7 @@
   };
 
   var onUpdateUserError = function(data) {
-     $scope.message = data.exception;
+     $scope.message = data;
   };
 
   //--Deletes user Button
@@ -52,7 +64,8 @@
     });
   };
   var onDeleteUserError = function(data) {
-    $scope.message = data.exception;
+    alert()
+    $scope.message = data;
   };
 
   //View user Button
