@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129124634) do
+ActiveRecord::Schema.define(version: 20161210210120) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
-    t.integer  "degree_id"
     t.integer  "school_id"
     t.integer  "degree_id"
     t.datetime "created_at", null: false
@@ -23,10 +22,21 @@ ActiveRecord::Schema.define(version: 20161129124634) do
     t.index ["school_id"], name: "index_courses_on_school_id"
   end
 
+  create_table "courses_disciplines", id: false, force: :cascade do |t|
+    t.integer "course_id",     null: false
+    t.integer "discipline_id", null: false
+  end
+
   create_table "degrees", force: :cascade do |t|
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "disciplines", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -67,10 +77,7 @@ ActiveRecord::Schema.define(version: 20161129124634) do
     t.string   "password"
     t.string   "resetToken"
     t.string   "surname"
-<<<<<<< HEAD
     t.index ["role_id"], name: "index_users_on_role_id"
-=======
->>>>>>> master
   end
 
 end
