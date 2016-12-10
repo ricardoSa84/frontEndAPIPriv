@@ -8,10 +8,15 @@ angular.module("app").controller('managmentController', function($scope, $locati
     }
   }
 
+
    //--GetUser 
   $scope.getUser = function () {
       //gets the id from the route
       var id = $routeParams.id;
+      //protection for users. Only admins can view all profiles
+      if( !($scope.isAdmin() || SessionService.getLoggedID() == id) ){
+        id=SessionService.getLoggedID();
+      }
       ManageUserService.getUser(id).success(onGetUserSuccess).error(onGetUserError);
   }; 
   var onGetUserSuccess = function(data) {
