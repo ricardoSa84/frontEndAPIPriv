@@ -35,6 +35,8 @@ angular.module("app").controller('managmentController', function($scope, $locati
   };
   var onResetTokenSuccess = function(data) {
      $scope.credentials.api_key = data.api_key;
+     //sets the new token on session
+     SessionService.setLoggedToken(data.api_key); 
      $scope.message = "New token generated...";
   };  
   var onResetTokenError = function(data) {
