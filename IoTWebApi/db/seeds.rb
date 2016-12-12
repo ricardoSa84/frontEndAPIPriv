@@ -30,9 +30,9 @@ puts "######### Apagou com sucesso os dados anteriores ##########"
 @r2 = Role.create(name: 'User')
 @r3 = Role.create(name: 'Admin')
 
-@r1.users.create(name: 'teste', email: 'teste', password:'teste')
-@r2.users.create(name: 'teste', email: 'teste', password:'teste')
-@r3.users.create(name: 'teste', email: 'teste', password:'teste')
+@r1.users.create(name: 'teste1', email: 'teste1', password:'teste1')
+@r2.users.create(name: 'teste2', email: 'teste2', password:'teste2')
+@r3.users.create(name: 'teste3', email: 'teste3', password:'teste3')
 
 puts "#################### Adicionar escolas ####################"
 

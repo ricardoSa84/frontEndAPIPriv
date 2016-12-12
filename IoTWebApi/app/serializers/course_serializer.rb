@@ -5,5 +5,5 @@ class CourseSerializer < ActiveModel::Serializer
   belongs_to :school
   belongs_to :degree
 
-  #has_and_belongs_to_many :disciplines
+  has_many :disciplines
 end
