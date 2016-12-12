@@ -1,5 +1,5 @@
 angular.module("app").factory('AuthenticationService', function($http,SessionService ) {
-  // these routes map to stubbed API endpoints in config/server.js
+  
 var credentials = {};
 
   return {
@@ -11,7 +11,10 @@ var credentials = {};
     },
     resetPassWord: function(email) {
       return $http.post('/v1/resetpassword',email);
-    }      
+    },
+    isAdmin: function(roleName) {
+      return ( roleName == "Admin" ? true : false );
+    }    
   };
 });
 

@@ -1,4 +1,8 @@
-angular.module('app').config(function($routeProvider, $locationProvider) {
+angular.module('app').config(function($routeProvider, $locationProvider,$httpProvider) {
+
+  //Push in to the httpProvider what we want
+  $httpProvider.interceptors.push('sessionInjector');
+
 
   $locationProvider.html5Mode({enabled:false});
 
@@ -6,18 +10,18 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
     templateUrl: 'login.html',
     controller: 'LoginController'
   });
-
-    $routeProvider.when('/login/:token', {
-    templateUrl: 'login.html',
-    controller: 'paramController',
-    params: {
-          token: 'token'
-        }
+  
+   $routeProvider.when('/login/:token', {
+   templateUrl: 'login.html',
+   controller: 'paramController',
+   params: {
+         token: 'token'
+       }
   });
-    
-  $routeProvider.when('/managment', {
+
+  $routeProvider.when('/managment/:id', {
     templateUrl: 'managment.html',
-    controller: 'managmentController'
+    controller: 'managmentController',
   });
   
   $routeProvider.when('/manageUsers', {

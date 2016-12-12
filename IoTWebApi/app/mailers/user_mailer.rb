@@ -1,7 +1,8 @@
 class UserMailer < ApplicationMailer
-  default from: 'opendataapi@ipt.pt'
+  default from: 'mei.internetofthings@gmail.com'
  
-  def mailRegisto(user)
+
+  def mailRegisto(user)    
     @user = user
     @url  = 'localhost:8000/login'
     mail(to: @user.email, subject: 'Registo IPT OPEN DATA API')

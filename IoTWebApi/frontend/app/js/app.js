@@ -1,5 +1,6 @@
-angular.module("app", ["ngResource", "ngRoute"]).run(function($rootScope) {
-  // adds some basic utilities to the $rootScope for debugging purposes
+angular.module("app", ["ngResource", "ngRoute"]).run(function($rootScope,$http) {
+  
+
   $rootScope.log = function(thing) {
     console.log(thing);
   };

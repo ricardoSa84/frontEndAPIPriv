@@ -1,4 +1,4 @@
-<div id="Home" class="row" ng-init="isAuth();getCredentials()">
+<div id="managment" class="row" ng-init="isAuth();getUser()">
   <div class="large-6 large-offset-3">
     <div class="alert-box">{{ message }}</div>
      <div class="row">          
@@ -16,6 +16,7 @@
           </div>
             <div class="large-3 columns">
               <input type="text" name="api_key" placeholder="api_key" ng-model="credentials.api_key" />
+              <button id="btn_resetToken" type="button" class="button" ng-click="resetToken()">ResetToken</button>
           </div>
         </div>  
          <div class="row">
@@ -26,7 +27,7 @@
       </fieldset>
     </form>
     <div class="large-12 columns">
-      <button id="log-in" type="submit" class="button large expand radius" ng-click="redirect()">Manage</button>
+      <button id="log-in" type="submit" class="button large expand radius" ng-click="redirect()" ng-if="isAdmin()">Manage</button>
       <button id="btn_changePassword" type="submit" class="button large expand radius" ng-click="changePassword()">Change Password</button>
     </div>
   </div>

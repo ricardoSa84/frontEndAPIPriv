@@ -1,10 +1,13 @@
 module Api::V1
   class UsersController < ApiController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :update, :destroy, :resetApiToken]
+
+  #only skip if action is create
+  skip_before_action :authenticate , :only => [:create]
+  skip_before_action :autorize, :only => [:create]
 
   # GET /users
   def index
-      debugger
     @users = User.all
 
     render json: @users
@@ -12,16 +15,15 @@ module Api::V1
 
   # GET /users/1
   def show
-      debugger
     render json: @user
   end
 
   # POST /users
   def create
-      debugger
     @user = User.new(user_params)  
     if @user.save
-      UserMailer.mailRegisto(@user).deliver_now
+      #deliver_later will execute your method from the background job.
+      UserMailer.mailRegisto(@user).deliver_later   
       render json: @user ,status: :created #, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -30,9 +32,7 @@ module Api::V1
 
   # PATCH/PUT /users/1
   def update
-      debugger
     if @user.update(user_params)
-    @surname = user_params[:surname];
       render json: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -41,10 +41,19 @@ module Api::V1
 
   # DELETE /users/1
   def destroy
-      debugger
     @user.destroy
     #returns the object destroyed
     render json: @user
+  end
+
+  def resetApiToken
+    #resets the apikey
+    @user.api_key = @user.generate_api_key
+    if @user.save
+      render json: @user 
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
  def resetPassword

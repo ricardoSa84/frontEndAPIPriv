@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   belongs_to :role ,  optional: true
   
+  after_initialize :init
+
+  def init
+    self.role  ||= Role.find_by(name:"User")            
+  end
 
   #overrides the sets
   def role=(params)
