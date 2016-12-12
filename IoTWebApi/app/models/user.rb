@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   belongs_to :role ,  optional: true
   
-  after_initialize :init
+  #only if is a new user
+  after_initialize :init, unless: :persisted?
 
   def init
     self.role  ||= Role.find_by(name:"User")            
