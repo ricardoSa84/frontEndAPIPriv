@@ -6,7 +6,7 @@ scope module: 'api' do
 
 		  	post 'login' => 'api#login'
 		  	post 'logout' => 'api#logout'
-		  	#match 'users/:email' => 'users#show', via: [:get, :post]
+		  	post 'resetpassword' => 'users#resetPassword'
 
 			resources :users
 

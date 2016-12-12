@@ -51,6 +51,10 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
     templateUrl: 'changePassword.html',
     controller: 'ChangePasswordController'
   });
+  $routeProvider.when('/resetConfirm', {
+    templateUrl: 'resetConfirm.html',
+    controller: 'ResetConfirmController'
+  });
 
   $routeProvider.otherwise({ redirectTo: '/home' });
 

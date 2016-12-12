@@ -4,6 +4,7 @@ module Api::V1
 
   # GET /users
   def index
+      debugger
     @users = User.all
 
     render json: @users
@@ -11,11 +12,13 @@ module Api::V1
 
   # GET /users/1
   def show
+      debugger
     render json: @user
   end
 
   # POST /users
   def create
+      debugger
     @user = User.new(user_params)  
     if @user.save
       UserMailer.mailRegisto(@user).deliver_now
@@ -27,6 +30,7 @@ module Api::V1
 
   # PATCH/PUT /users/1
   def update
+      debugger
     if @user.update(user_params)
     @surname = user_params[:surname];
       render json: @user
@@ -37,19 +41,34 @@ module Api::V1
 
   # DELETE /users/1
   def destroy
+      debugger
     @user.destroy
     #returns the object destroyed
     render json: @user
   end
 
+ def resetPassword
+      debugger
+      @user = User.find_by(email: params[:email]);
+      @user.resetToken = SecureRandom.uuid;
+      @user.resetDate = DateTime.now;
+      if @user.save
+        UserMailer.mailPassRecovery(@user).deliver_now
+      else
+        render :json => { :errors => @user.errors.full_messages }, :status => 422
+      end     
+  end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      debugger
         @user = User.find(params[:id])   
     end
 
     # Only allow a trusted parameter "white list" through.
     def user_params
+      debugger
       params.require(:user).permit(:id, :name, :surname, :email, :password, :role => [:id] )
     end
   end
