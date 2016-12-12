@@ -2,6 +2,12 @@ module Api::V1
   class SchoolsController < ApiController
   before_action :set_school, only: [:show, :update, :destroy]
 
+
+  #Swagger
+    #swagger_controller :school, 'schools mgm'
+
+
+
   # GET /schools
   def index
     @schools = School.all

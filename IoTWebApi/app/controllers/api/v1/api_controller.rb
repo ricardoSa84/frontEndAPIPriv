@@ -6,6 +6,7 @@ module Api::V1
 	before_action :autorize, :except => [:login]
 
 
+
 	def autorize
 		#if the user is API
 		if @current_user.nil?

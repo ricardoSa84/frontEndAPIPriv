@@ -11,6 +11,8 @@ class ApplicationController < ActionController::API
 
 	  
 
+	  
+
 	  protected
 
 	  # Authenticate the user with token based authentication
