@@ -1,6 +1,10 @@
 angular.module("app").controller('managmentController', function($scope, $location,$routeParams, SessionService,AuthenticationService, ManageUserService) {
   $scope.credentials ={};
 
+  $scope.readOnly = true;
+
+  $scope.changePassword = false;
+
   //Authentication
   $scope.isAuth = function() {
     if(!SessionService.isLoggedIn()){
@@ -44,6 +48,29 @@ angular.module("app").controller('managmentController', function($scope, $locati
   };  
 
 
+  //update User Data
+  $scope.updateUserData = function() {
+    var user = $scope.credentials;
+    user = {user:user}
+    delete user.user['api_key'];
+    delete user.user['role'];
+    ManageUserService.updateUser(user).success(onUpdateUserDataSuccess).error(onUpdateUserDataError);
+  };
+  var onUpdateUserDataSuccess = function(data) {
+     $scope.credentials = data;
+     $scope.message = "Data update success...";
+     $scope.editUserData();    
+  };  
+  var onUpdateUserDataError = function(data) {
+     $scope.message = data.exception;
+  }; 
+
+
+  //Edit Button
+  $scope.editUserData = function() {
+    $scope.readOnly = ( $scope.readOnly == true ? false : true);
+  };
+
   //Navigation----
   $scope.redirect = function() {
       $location.path('/manageUsers');
@@ -54,6 +81,10 @@ angular.module("app").controller('managmentController', function($scope, $locati
   $scope.logout = function() {
     SessionService.unsetSession();
     $location.path('/login');
+  };
+
+  $scope.canChangePassword = function() {
+    return ((SessionService.getLoggedID() == $routeParams.id) ? true : false);
   };
 
   $scope.isAdmin = function() {

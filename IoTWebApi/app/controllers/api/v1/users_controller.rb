@@ -1,6 +1,6 @@
 module Api::V1
   class UsersController < ApiController
-  before_action :set_user, only: [:show, :update, :destroy, :resetApiToken]
+  before_action :set_user, only: [:show, :update, :destroy, :resetApiToken, :isUserPassword ]
 
   #only skip if action is create
   skip_before_action :authenticate , :only => [:create]
@@ -53,6 +53,15 @@ module Api::V1
       render json: @user 
     else
       render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  #Is user password
+  def isUserPassword
+    if( params[:password] ==  @user.password )
+      render json: true
+    else
+      render json: false
     end
   end
 
