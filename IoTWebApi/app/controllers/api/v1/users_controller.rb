@@ -57,12 +57,11 @@ module Api::V1
   end
 
  def resetPassword
-      debugger
       @user = User.find_by(email: params[:email]);
       @user.resetToken = SecureRandom.uuid;
       @user.resetDate = DateTime.now;
       if @user.save
-        UserMailer.mailPassRecovery(@user).deliver_now
+        UserMailer.mailPassRecovery(@user).deliver_later
       else
         render :json => { :errors => @user.errors.full_messages }, :status => 422
       end     
@@ -71,13 +70,11 @@ module Api::V1
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      debugger
         @user = User.find(params[:id])   
     end
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      debugger
       params.require(:user).permit(:id, :name, :surname, :email, :password, :role => [:id] )
     end
   end
