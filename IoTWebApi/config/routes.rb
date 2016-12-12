@@ -8,6 +8,7 @@ scope module: 'api' do
 		  	post 'logout' => 'api#logout'
 		  	post 'resetpassword' => 'users#resetPassword'
 		  	match 'resetApiToken/:id' => 'users#resetApiToken', via: [:get]
+			match 'isUserPassword/:id' => 'users#isUserPassword', via: [:post]
 
 			resources :users
 
