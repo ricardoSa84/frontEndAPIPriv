@@ -4,8 +4,13 @@ module Api::V1
 
   swagger_controller :schools, "Schools Management"
 
-  ponse :unauthorized
-
+  swagger_api :index do
+    summary "Fetches all School items"
+    notes "This lists all the active Schools"
+    response :unauthorized
+    response :not_acceptable, "School ID doesn't exist"
+  end
+  
   # GET /schools
   def index
     @schools = School.all
@@ -13,12 +18,7 @@ module Api::V1
     render json: @schools
   end
 
-  swagger_api :index do
-    summary "Fetches all School items"
-    notes "This lists all the active Schools"
-    response :unauthorized
-    response :not_acceptable, "School ID doesn't exist"
-  end
+
 
   # GET /schools/1
   def show

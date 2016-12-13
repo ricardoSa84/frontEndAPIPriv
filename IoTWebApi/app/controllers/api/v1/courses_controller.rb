@@ -4,8 +4,13 @@ module Api::V1
 
   swagger_controller :courses, "Courses Management"
 
-  ponse :unauthorized
-    #end
+
+  swagger_api :index do
+    summary "Fetches all Courses items"
+    notes "This lists all the active Courses"
+    response :unauthorized
+    response :not_acceptable, "Course ID doesn't exist"
+  end
 
   # GET /courses
   def index
@@ -14,12 +19,7 @@ module Api::V1
     render json: @courses
   end
 
-  swagger_api :index do
-    summary "Fetches all Courses items"
-    notes "This lists all the active Courses"
-    response :unauthorized
-    response :not_acceptable, "Course ID doesn't exist"
-  end
+
 
   # GET /courses/1
   def show
@@ -50,7 +50,11 @@ module Api::V1
     summary "Creates a Courses item"
     notes "Creates a Courses item"
     #param :id, "Course ID"
+    param :course ,:name, :string, :integer, :optional, "Tlkhjhkj"
     #param :path, :nested_id, :integer, :optional, "Team Id"
+    #param :path, :nested_id, :integer, :optional, "Team Id"
+    #param :path, :nested_id, :integer, :optional, "Team Id"
+
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
