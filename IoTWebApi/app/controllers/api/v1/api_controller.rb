@@ -2,8 +2,10 @@ module Api::V1
   class ApiController < ApplicationController
     # Generic API stuff here
 	
-	#before_action :authenticate , :except => [:login]
-	#before_action :autorize, :except => [:login]
+	before_action :authenticate , :except => [:login],
+                  :if => Proc.new { |c| c.request.format != 'application/json' }
+	before_action :autorize, :except => [:login],
+                  :if => Proc.new { |c| c.request.format != 'application/json' }
 
 
 
