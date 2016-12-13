@@ -10,8 +10,139 @@
         {
           "summary": "Fetches all Courses items",
           "notes": "This lists all the active Courses",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Course ID doesn't exist"
+            }
+          ],
           "nickname": "Api::V1::Courses#index",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/v1/schools/{school_id}/courses",
+      "operations": [
+        {
+          "summary": "Creates a Courses item",
+          "notes": "Creates a Courses item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Course ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Courses#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/v1/schools/{school_id}/courses/{id}",
+      "operations": [
+        {
+          "summary": "Fetches a Courses items",
+          "notes": "This lists an active Course",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Course ID doesn't exist"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "id",
+              "name": "integer",
+              "type": "required",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Api::V1::Courses#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/v1/schools/{school_id}/courses/{id}",
+      "operations": [
+        {
+          "summary": "Updates a Courses item",
+          "notes": "Updates a Courses item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Course ID doesn't exist"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "id",
+              "name": "integer",
+              "type": "required",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Api::V1::Courses#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/v1/schools/{school_id}/courses/{id}",
+      "operations": [
+        {
+          "summary": "Destroys a Courses item",
+          "notes": "Destroys a Courses item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Course ID doesn't exist"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "id",
+              "name": "integer",
+              "type": "required",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Api::V1::Courses#destroy",
+          "method": "delete"
         }
       ]
     }

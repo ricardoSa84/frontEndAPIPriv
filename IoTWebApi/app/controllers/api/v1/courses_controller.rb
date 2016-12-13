@@ -2,17 +2,13 @@ module Api::V1
   class CoursesController < ApiController
   before_action :set_course, only: [:show, :update, :destroy]
 
-    swagger_controller :courses, "Courses Management"
+  swagger_controller :courses, "Courses Management"
 
-    swagger_api :index do
-      summary "Fetches all Courses items"
-      notes "This lists all the active Courses"
-    #param :query, :page, :integer, :optional, "Page number"
-    #param :path, :nested_id, :integer, :optional, "Team Id"
-    #response :unauthorized
-    #response :not_acceptable, "The request you made is not acceptable"
-    #response :requested_range_not_satisfiable
-    end
+    #swagger_api :index do
+      #summary "Fetches all Courses items"
+      #notes "This lists all the active Courses"
+      #esponse :unauthorized
+    #end
 
   # GET /courses
   def index
@@ -21,9 +17,25 @@ module Api::V1
     render json: @courses
   end
 
+  swagger_api :index do
+    summary "Fetches all Courses items"
+    notes "This lists all the active Courses"
+    response :unauthorized
+    response :not_acceptable, "Course ID doesn't exist"
+  end
+
   # GET /courses/1
   def show
     render json: @course
+  end
+
+  swagger_api :show do
+    summary "Fetches a Courses items"
+    notes "This lists an active Course"
+    param :id, :integer, :required, "User ID"
+    #param :path, :nested_id, :integer, :optional, "Team Id"
+    response :unauthorized
+    response :not_acceptable, "Course ID doesn't exist"
   end
 
   # POST /courses
@@ -37,6 +49,15 @@ module Api::V1
     end
   end
 
+  swagger_api :create do
+    summary "Creates a Courses item"
+    notes "Creates a Courses item"
+    #param :id, "Course ID"
+    #param :path, :nested_id, :integer, :optional, "Team Id"
+    response :unauthorized
+    response :not_acceptable, "Course ID doesn't exist"
+  end
+
   # PATCH/PUT /courses/1
   def update
     if @course.update(course_params)
@@ -46,10 +67,27 @@ module Api::V1
     end
   end
 
+  swagger_api :update do
+    summary "Updates a Courses item"
+    notes "Updates a Courses item"
+    param :id, :integer, :required, "User ID"
+    #param :path, :nested_id, :integer, :optional, "Team Id"
+    response :unauthorized
+    response :not_acceptable, "Course ID doesn't exist"
+  end
 
   # DELETE /courses/1
   def destroy
     @course.destroy
+  end
+
+  swagger_api :destroy do
+    summary "Destroys a Courses item"
+    notes "Destroys a Courses item"
+    param :id, :integer, :required, "User ID"
+    #param :path, :nested_id, :integer, :optional, "Team Id"
+    response :unauthorized
+    response :not_acceptable, "Course ID doesn't exist"
   end
 
   private
