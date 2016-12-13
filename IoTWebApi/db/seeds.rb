@@ -12,7 +12,6 @@
 # rails db:schema:load 	-	Comando para carregar o esquema da BD
 ##########################################################################################
 
-
 User.delete_all
 Role.delete_all
 
@@ -20,6 +19,7 @@ Room.delete_all
 Course.delete_all
 Degree.delete_all
 School.delete_all
+Discipline.delete_all
 
 puts ""
 puts "######### Apagou com sucesso os dados anteriores ##########"
@@ -30,7 +30,9 @@ puts "######### Apagou com sucesso os dados anteriores ##########"
 @r2 = Role.create(name: 'User')
 @r3 = Role.create(name: 'Admin')
 
-@r1.users.create(name: 'teste', email: 'teste', password:'teste')
+@r1.users.create(name: 'teste1', email: 'teste1', password:'teste1')
+@r2.users.create(name: 'teste2', email: 'teste2', password:'teste2')
+@r3.users.create(name: 'teste3', email: 'teste3', password:'teste3')
 
 puts "#################### Adicionar escolas ####################"
 
@@ -212,99 +214,172 @@ puts "############### Adicionar Níveis de cursos ################"
 
 puts "#################### Adicionar  cursos ####################"
 
-#@s1.courses.create(name:'Administração de Bases de Dados', degree: @r1)
-#@s1.courses.create(name:'Animação e Modelação 3D', degree: @r1)
+#@s1.courses.create(name:'Administração de Bases de Dados',degree:@r1)
+@course1 = @s1.courses.create(name:'Administração de Bases de Dados',degree:@r1)
+@course2 = @s1.courses.create(name:'Animação e Modelação 3D',degree:@r1)
+@course3 = @s1.courses.create(name:'Arte e Técnica do Couro',degree:@r1)
+@course4 = @s1.courses.create(name:'Automação Industrial',degree:@r1)
+@course5 = @s1.courses.create(name:'Construção e Reabilitação',degree:@r1)
+@course6 = @s1.courses.create(name:'Contabilidade e Fiscalidade',degree:@r1)
+@course7 = @s1.courses.create(name:'Contabilidade e Gestão',degree:@r1)
+@course8 = @s1.courses.create(name:'Desenho Tecnológico',degree:@r1)
+@course9 = @s1.courses.create(name:'Desenho e Fabrico de Construções Mecânicas',degree:@r1)
+@course10 = @s1.courses.create(name:'Design Multimédia',degree:@r1)
+@course11 = @s1.courses.create(name:'Gestão Administrativa de Recursos Humanos',degree:@r1)
+@course12 = @s1.courses.create(name:'Gestão Comercial e Vendas',degree:@r1)
+@course13 = @s1.courses.create(name:'Instalações Elétricas e Manutenção Industrial',degree:@r1)
+@course14 = @s1.courses.create(name:'Manutenção de Sistemas Mecatrónicos',degree:@r1)
+@course15 = @s1.courses.create(name:'Produção Artística para a Conservação e Restauro',degree:@r1)
+@course16 = @s1.courses.create(name:'Produção de Atividades para o Turismo Cultural',degree:@r1)
+@course17 = @s1.courses.create(name:'Qualidade Alimentar',degree:@r1)
+@course18 = @s1.courses.create(name:'Qualidade Ambiental',degree:@r1)
+@course19 = @s1.courses.create(name:'Segurança e Proteção Civil',degree:@r1)
+@course20 = @s1.courses.create(name:'Som e Imagem',degree:@r1)
+@course21 = @s1.courses.create(name:'Tecnologia de Bioprocessos',degree:@r1)
+@course22 = @s1.courses.create(name:'Tecnologia e Programação em Sistemas de Informação',degree:@r1)
+@course23 = @s1.courses.create(name:'Tecnologias Tradicionais de Construção e Reabilitação',degree:@r1)
+@course24 = @s1.courses.create(name:'Web e Dispositivos Móveis',degree:@r1)
+@course25 = @s1.courses.create(name:'Administração Pública',degree:@r2)
+@course26 = @s1.courses.create(name:'Artes Plásticas - Pintura e Intermédia',degree:@r2)
+@course27 = @s1.courses.create(name:'Auditoria e Fiscalidade',degree:@r2)
+@course28 = @s1.courses.create(name:'Comunicação Social',degree:@r2)
+@course29 = @s1.courses.create(name:'Conservação e Restauro',degree:@r2)
+@course30 = @s1.courses.create(name:'Construção e Reabilitação',degree:@r2)
+@course31 = @s1.courses.create(name:'Contabilidade',degree:@r2)
+@course32 = @s1.courses.create(name:'Design e Tecnologia das Artes Gráficas',degree:@r2)
+@course33 = @s1.courses.create(name:'Engenharia Civil (pós-laboral)',degree:@r2)
+@course34 = @s1.courses.create(name:'Engenharia Civil',degree:@r2)
+@course35 = @s1.courses.create(name:'Engenharia Electrotécnica e de Computadores (pós-laboral)',degree:@r2)
+@course36 = @s1.courses.create(name:'Engenharia Electrotécnica e de Computadores',degree:@r2)
+@course37 = @s1.courses.create(name:'Engenharia Informática (pós-laboral)',degree:@r2)
+@course38 = @s1.courses.create(name:'Engenharia Informática',degree:@r2)
+@course39 = @s1.courses.create(name:'Engenharia Mecânica',degree:@r2)
+@course40 = @s1.courses.create(name:'Engenharia Química e Bioquímica',degree:@r2)
+@course41 = @s1.courses.create(name:'Engenharia do Ambiente e Biológica',degree:@r2)
+@course42 = @s1.courses.create(name:'Fotografia',degree:@r2)
+@course43 = @s1.courses.create(name:'Gestão Turística e Cultural',degree:@r2)
+@course44 = @s1.courses.create(name:'Gestão de Empresas (pós-laboral)',degree:@r2)
+@course45 = @s1.courses.create(name:'Gestão de Empresas',degree:@r2)
+@course46 = @s1.courses.create(name:'Gestão de Recursos Humanos e Comportamento Organizacional',degree:@r2)
+@course47 = @s1.courses.create(name:'Gestão do Território',degree:@r2)
+@course48 = @s1.courses.create(name:'Gestão e Administração Bancária (Pós-Laboral)',degree:@r2)
+@course49 = @s1.courses.create(name:'Gestão e Administração de Serviços de Saúde',degree:@r2)
+@course50 = @s1.courses.create(name:'Tecnologias de Informação e Comunicação',degree:@r2)
+@course51 = @s1.courses.create(name:'Video e Cinema Documental',degree:@r2)
+@course52 = @s1.courses.create(name:'Analítica e Inteligência Organizacional',degree:@r3)
+@course53 = @s1.courses.create(name:'Arqueologia Pré-Histórica a Arte Rupestre',degree:@r3)
+@course54 = @s1.courses.create(name:'Auditoria e Análise Financeira',degree:@r3)
+@course55 = @s1.courses.create(name:'Auditoria e Finanças',degree:@r3)
+@course56 = @s1.courses.create(name:'Conservação e Restauro',degree:@r3)
+@course57 = @s1.courses.create(name:'Desenvolvimento de Produtos de Turismo Cultural',degree:@r3)
+@course58 = @s1.courses.create(name:'Design Editorial',degree:@r3)
+@course59 = @s1.courses.create(name:'Engenharia Eletrotécnica - Especialização em Controlo e Eletrónica Industrial',degree:@r3)
+@course60 = @s1.courses.create(name:'Engenharia Informática - Internet das Coisas',degree:@r3)
+@course61 = @s1.courses.create(name:'Engenharia Mecânica - Projecto e Produção Mecânica',degree:@r3)
+@course62 = @s1.courses.create(name:'Fotografia',degree:@r3)
+@course63 = @s1.courses.create(name:'Gestão de Empresas Familiares e Empreendedorismo',degree:@r3)
+@course64 = @s1.courses.create(name:'Gestão de Recursos de Saúde',degree:@r3)
+@course65 = @s1.courses.create(name:'Informática na Saúde (pós-laboral)',degree:@r3)
+@course66 = @s1.courses.create(name:'Inovação e Desenvolvimento Empreendedor',degree:@r3)
+@course67 = @s1.courses.create(name:'Manutenção de Instalações Técnicas',degree:@r3)
+@course68 = @s1.courses.create(name:'Museus, Património e Sociedade do Conhecimento',degree:@r3)
+@course69 = @s1.courses.create(name:'Produção de Conteúdos Digitais',degree:@r3)
+@course70 = @s1.courses.create(name:'Reabilitação Urbana',degree:@r3)
+@course71 = @s1.courses.create(name:'Sistemas de Informação Geográfica, em Planeamento e Gestão do Território',degree:@r3)
+@course72 = @s1.courses.create(name:'Tecnologia Quimica',degree:@r3)
+@course73 = @s1.courses.create(name:'Técnicas de Arqueologia',degree:@r3)
+@course74 = @s1.courses.create(name:'Executive Master em Gestão de Organizações Sem Fins Lucrativos',degree:@r5)
+@course75 = @s1.courses.create(name:'Executive Master em Gestão para Empreendedores e Executivos',degree:@r5)
+@course76 = @s1.courses.create(name:'Análise e Tratamento Computacional de Dados',degree:@r5)
+@course77 = @s1.courses.create(name:'Arqueologia Subaquática',degree:@r5)
+@course78 = @s1.courses.create(name:'Arqueologia, Gestão e Educação Patrimonial',degree:@r5)
+@course79 = @s1.courses.create(name:'Business Intelligence',degree:@r5)
+@course80 = @s1.courses.create(name:'Design Multimédia',degree:@r5)
+@course81 = @s1.courses.create(name:'Gestão de Informação e do Conhecimento',degree:@r5)
+@course82 = @s1.courses.create(name:'Jornalismo de Proximidade',degree:@r5)
+@course83 = @s1.courses.create(name:'Marketing Territorial',degree:@r5)
+@course84 = @s1.courses.create(name:'Produção Industrial',degree:@r5)
+@course85 = @s1.courses.create(name:'Proteção Civil: A Gestão da Comunicação no Risco, nas Emergências e nas Crises',degree:@r5)
+@course86 = @s1.courses.create(name:'Pós-graduação em Novas Tecnologias da Comunicação',degree:@r5)
 
-@s1.courses.create(name:'Administração de Bases de Dados',degree:@r1)
-@s1.courses.create(name:'Animação e Modelação 3D',degree:@r1)
-@s1.courses.create(name:'Arte e Técnica do Couro',degree:@r1)
-@s1.courses.create(name:'Automação Industrial',degree:@r1)
-@s1.courses.create(name:'Construção e Reabilitação',degree:@r1)
-@s1.courses.create(name:'Contabilidade e Fiscalidade',degree:@r1)
-@s1.courses.create(name:'Contabilidade e Gestão',degree:@r1)
-@s1.courses.create(name:'Desenho Tecnológico',degree:@r1)
-@s1.courses.create(name:'Desenho e Fabrico de Construções Mecânicas',degree:@r1)
-@s1.courses.create(name:'Design Multimédia',degree:@r1)
-@s1.courses.create(name:'Gestão Administrativa de Recursos Humanos',degree:@r1)
-@s1.courses.create(name:'Gestão Comercial e Vendas',degree:@r1)
-@s1.courses.create(name:'Instalações Elétricas e Manutenção Industrial',degree:@r1)
-@s1.courses.create(name:'Manutenção de Sistemas Mecatrónicos',degree:@r1)
-@s1.courses.create(name:'Produção Artística para a Conservação e Restauro',degree:@r1)
-@s1.courses.create(name:'Produção de Atividades para o Turismo Cultural',degree:@r1)
-@s1.courses.create(name:'Qualidade Alimentar',degree:@r1)
-@s1.courses.create(name:'Qualidade Ambiental',degree:@r1)
-@s1.courses.create(name:'Segurança e Proteção Civil',degree:@r1)
-@s1.courses.create(name:'Som e Imagem',degree:@r1)
-@s1.courses.create(name:'Tecnologia de Bioprocessos',degree:@r1)
-@s1.courses.create(name:'Tecnologia e Programação em Sistemas de Informação',degree:@r1)
-@s1.courses.create(name:'Tecnologias Tradicionais de Construção e Reabilitação',degree:@r1)
-@s1.courses.create(name:'Web e Dispositivos Móveis',degree:@r1)
-@s1.courses.create(name:'Administração Pública',degree:@r2)
-@s1.courses.create(name:'Artes Plásticas - Pintura e Intermédia',degree:@r2)
-@s1.courses.create(name:'Auditoria e Fiscalidade',degree:@r2)
-@s1.courses.create(name:'Comunicação Social',degree:@r2)
-@s1.courses.create(name:'Conservação e Restauro',degree:@r2)
-@s1.courses.create(name:'Construção e Reabilitação',degree:@r2)
-@s1.courses.create(name:'Contabilidade',degree:@r2)
-@s1.courses.create(name:'Design e Tecnologia das Artes Gráficas',degree:@r2)
-@s1.courses.create(name:'Engenharia Civil (pós-laboral)',degree:@r2)
-@s1.courses.create(name:'Engenharia Civil',degree:@r2)
-@s1.courses.create(name:'Engenharia Electrotécnica e de Computadores (pós-laboral)',degree:@r2)
-@s1.courses.create(name:'Engenharia Electrotécnica e de Computadores',degree:@r2)
-@s1.courses.create(name:'Engenharia Informática (pós-laboral)',degree:@r2)
-@s1.courses.create(name:'Engenharia Informática',degree:@r2)
-@s1.courses.create(name:'Engenharia Mecânica',degree:@r2)
-@s1.courses.create(name:'Engenharia Química e Bioquímica',degree:@r2)
-@s1.courses.create(name:'Engenharia do Ambiente e Biológica',degree:@r2)
-@s1.courses.create(name:'Fotografia',degree:@r2)
-@s1.courses.create(name:'Gestão Turística e Cultural',degree:@r2)
-@s1.courses.create(name:'Gestão de Empresas (pós-laboral)',degree:@r2)
-@s1.courses.create(name:'Gestão de Empresas',degree:@r2)
-@s1.courses.create(name:'Gestão de Recursos Humanos e Comportamento Organizacional',degree:@r2)
-@s1.courses.create(name:'Gestão do Território',degree:@r2)
-@s1.courses.create(name:'Gestão e Administração Bancária (Pós-Laboral)',degree:@r2)
-@s1.courses.create(name:'Gestão e Administração de Serviços de Saúde',degree:@r2)
-@s1.courses.create(name:'Tecnologias de Informação e Comunicação',degree:@r2)
-@s1.courses.create(name:'Video e Cinema Documental',degree:@r2)
-@s1.courses.create(name:'Analítica e Inteligência Organizacional',degree:@r3)
-@s1.courses.create(name:'Arqueologia Pré-Histórica a Arte Rupestre',degree:@r3)
-@s1.courses.create(name:'Auditoria e Análise Financeira',degree:@r3)
-@s1.courses.create(name:'Auditoria e Finanças',degree:@r3)
-@s1.courses.create(name:'Conservação e Restauro',degree:@r3)
-@s1.courses.create(name:'Desenvolvimento de Produtos de Turismo Cultural',degree:@r3)
-@s1.courses.create(name:'Design Editorial',degree:@r3)
-@s1.courses.create(name:'Engenharia Eletrotécnica - Especialização em Controlo e Eletrónica Industrial',degree:@r3)
-@s1.courses.create(name:'Engenharia Informática - Internet das Coisas',degree:@r3)
-@s1.courses.create(name:'Engenharia Mecânica - Projecto e Produção Mecânica',degree:@r3)
-@s1.courses.create(name:'Fotografia',degree:@r3)
-@s1.courses.create(name:'Gestão de Empresas Familiares e Empreendedorismo',degree:@r3)
-@s1.courses.create(name:'Gestão de Recursos de Saúde',degree:@r3)
-@s1.courses.create(name:'Informática na Saúde (pós-laboral)',degree:@r3)
-@s1.courses.create(name:'Inovação e Desenvolvimento Empreendedor',degree:@r3)
-@s1.courses.create(name:'Manutenção de Instalações Técnicas',degree:@r3)
-@s1.courses.create(name:'Museus, Património e Sociedade do Conhecimento',degree:@r3)
-@s1.courses.create(name:'Produção de Conteúdos Digitais',degree:@r3)
-@s1.courses.create(name:'Reabilitação Urbana',degree:@r3)
-@s1.courses.create(name:'Sistemas de Informação Geográfica, em Planeamento e Gestão do Território',degree:@r3)
-@s1.courses.create(name:'Tecnologia Quimica',degree:@r3)
-@s1.courses.create(name:'Técnicas de Arqueologia',degree:@r3)
-@s1.courses.create(name:'Executive Master em Gestão de Organizações Sem Fins Lucrativos',degree:@r5)
-@s1.courses.create(name:'Executive Master em Gestão para Empreendedores e Executivos',degree:@r5)
-@s1.courses.create(name:'Análise e Tratamento Computacional de Dados',degree:@r5)
-@s1.courses.create(name:'Arqueologia Subaquática',degree:@r5)
-@s1.courses.create(name:'Arqueologia, Gestão e Educação Patrimonial',degree:@r5)
-@s1.courses.create(name:'Business Intelligence',degree:@r5)
-@s1.courses.create(name:'Design Multimédia',degree:@r5)
-@s1.courses.create(name:'Gestão de Informação e do Conhecimento',degree:@r5)
-@s1.courses.create(name:'Jornalismo de Proximidade',degree:@r5)
-@s1.courses.create(name:'Marketing Territorial',degree:@r5)
-@s1.courses.create(name:'Produção Industrial',degree:@r5)
-@s1.courses.create(name:'Proteção Civil: A Gestão da Comunicação no Risco, nas Emergências e nas Crises',degree:@r5)
-@s1.courses.create(name:'Pós-graduação em Novas Tecnologias da Comunicação',degree:@r5)
+
+#@d.disciplines.create(name:'Álgebra', course: [Course.find(user: 'Engenharia Informática')])
+
+puts "################## Adicionar  disciplina ##################"
+
+@discipline1 = Discipline.create(name:'Álgebra')
+@discipline2 = Discipline.create(name:'Introdução à Programação')
+@discipline3 = Discipline.create(name:'Introdução à Tecnologia')
+@discipline4 = Discipline.create(name:'Sistemas Digitais')
+@discipline5 = Discipline.create(name:'Análise Matemática II')
+@discipline6 = Discipline.create(name:'Introdução à Electrónica Digital')
+@discipline7 = Discipline.create(name:'Lógica e Computação')
+@discipline8 = Discipline.create(name:'Programação Orientada a Objectos')
+@discipline9 = Discipline.create(name:'Tecnologias da Internet I')
+@discipline10 = Discipline.create(name:'Análise Matemática I')
+@discipline11 = Discipline.create(name:'Arquitectura de Computadores I')
+@discipline12 = Discipline.create(name:'Bases de Dados I')
+@discipline13 = Discipline.create(name:'Estruturas de Dados e Algoritmos')
+@discipline14 = Discipline.create(name:'Introdução às Telecomunicações')
+@discipline15 = Discipline.create(name:'Probabilidades e Estatística')
+@discipline16 = Discipline.create(name:'Bases de Dados II')
+@discipline17 = Discipline.create(name:'Microprocessadores')
+@discipline18 = Discipline.create(name:'Redes de Dados I')
+@discipline19 = Discipline.create(name:'Sistemas Operativos')
+@discipline20 = Discipline.create(name:'Tecnologias da Internet II')
+@discipline21 = Discipline.create(name:'Análise de Sistemas')
+@discipline22 = Discipline.create(name:'Arquitectura de Computadores II')
+@discipline23 = Discipline.create(name:'Gestão e Segurança de Redes Informáticas')
+@discipline24 = Discipline.create(name:'Redes de Dados II')
+@discipline25 = Discipline.create(name:'Sistemas Distribuídos')
+@discipline26 = Discipline.create(name:'Empreendedorismo')
+@discipline27 = Discipline.create(name:'Projecto de Redes')
+@discipline28 = Discipline.create(name:'Projecto de Sistemas de Informação')
+@discipline29 = Discipline.create(name:'Projecto Final')
+@discipline30 = Discipline.create(name:'Sistemas de Informação nas Organizações')
+
+
+
+
+puts "############# Ligação - Courses / Disciplines #############"
+
+#@course38.disciplines << @discipline1
+
+@course38.disciplines << @discipline1
+@course38.disciplines << @discipline2
+@course38.disciplines << @discipline3
+@course38.disciplines << @discipline4
+@course38.disciplines << @discipline5
+@course38.disciplines << @discipline6
+@course38.disciplines << @discipline7
+@course38.disciplines << @discipline8
+@course38.disciplines << @discipline9
+@course38.disciplines << @discipline10
+@course38.disciplines << @discipline11
+@course38.disciplines << @discipline12
+@course38.disciplines << @discipline13
+@course38.disciplines << @discipline14
+@course38.disciplines << @discipline15
+@course38.disciplines << @discipline16
+@course38.disciplines << @discipline17
+@course38.disciplines << @discipline18
+@course38.disciplines << @discipline19
+@course38.disciplines << @discipline20
+@course38.disciplines << @discipline21
+@course38.disciplines << @discipline22
+@course38.disciplines << @discipline23
+@course38.disciplines << @discipline24
+@course38.disciplines << @discipline25
+@course38.disciplines << @discipline26
+@course38.disciplines << @discipline27
+@course38.disciplines << @discipline28
+@course38.disciplines << @discipline29
+@course38.disciplines << @discipline30
+
+
 
 puts "################## Carregado com sucesso ##################"
 
-@d.disciplines.create(name:'Álgebra', course: [Course.find(user: 'Engenharia Informática')])
 ####[Role.seed(:user)])teste
 
 ####### DEBUG TIME #######

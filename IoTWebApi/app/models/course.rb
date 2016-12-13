@@ -1,9 +1,8 @@
 class Course < ApplicationRecord
-
-
 	belongs_to :school
 	belongs_to :degree
 
+    has_and_belongs_to_many :disciplines
 
 	#overrides the sets
 	def school=(params)
