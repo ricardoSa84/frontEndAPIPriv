@@ -1,15 +1,15 @@
 {
-  "apiVersion": "2.0",
+  "apiVersion": "1.0",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "courses",
+  "resourcePath": "schools",
   "apis": [
     {
-      "path": "/v1/schools/{school_id}/courses",
+      "path": "/v1/schools",
       "operations": [
         {
-          "summary": "Fetches all Courses items",
-          "notes": "This lists all the active Courses",
+          "summary": "Fetches all School items",
+          "notes": "This lists all the active Schools",
           "responseMessages": [
             {
               "code": 401,
@@ -19,20 +19,20 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Course ID doesn't exist"
+              "message": "School ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Courses#index",
+          "nickname": "Api::V1::Schools#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/v1/schools/{school_id}/courses",
+      "path": "/v1/schools",
       "operations": [
         {
-          "summary": "Creates a Courses item",
-          "notes": "Creates a Courses item",
+          "summary": "Creates a School item",
+          "notes": "Creates a School item",
           "responseMessages": [
             {
               "code": 401,
@@ -42,20 +42,20 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Course ID doesn't exist"
+              "message": "School ID doesn't exist"
             }
           ],
-          "nickname": "Api::V1::Courses#create",
+          "nickname": "Api::V1::Schools#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/v1/schools/{school_id}/courses/{id}",
+      "path": "/v1/schools/{id}",
       "operations": [
         {
-          "summary": "Fetches a Courses items",
-          "notes": "This lists an active Course",
+          "summary": "Fetches a School item",
+          "notes": "This lists an active School",
           "responseMessages": [
             {
               "code": 401,
@@ -65,7 +65,7 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Course ID doesn't exist"
+              "message": "School ID doesn't exist"
             }
           ],
           "parameters": [
@@ -77,17 +77,17 @@
               "required": false
             }
           ],
-          "nickname": "Api::V1::Courses#show",
+          "nickname": "Api::V1::Schools#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/v1/schools/{school_id}/courses/{id}",
+      "path": "/v1/schools/{id}",
       "operations": [
         {
-          "summary": "Updates a Courses item",
-          "notes": "Updates a Courses item",
+          "summary": "Updates a School item",
+          "notes": "Updates a School item",
           "responseMessages": [
             {
               "code": 401,
@@ -97,7 +97,7 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Course ID doesn't exist"
+              "message": "School ID doesn't exist"
             }
           ],
           "parameters": [
@@ -109,17 +109,17 @@
               "required": false
             }
           ],
-          "nickname": "Api::V1::Courses#update",
+          "nickname": "Api::V1::Schools#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/v1/schools/{school_id}/courses/{id}",
+      "path": "/v1/schools/{id}",
       "operations": [
         {
-          "summary": "Destroys a Courses item",
-          "notes": "Destroys a Courses item",
+          "summary": "Destroys a School item",
+          "notes": "Destroys a School item",
           "responseMessages": [
             {
               "code": 401,
@@ -129,7 +129,7 @@
             {
               "code": 406,
               "responseModel": null,
-              "message": "Course ID doesn't exist"
+              "message": "School ID doesn't exist"
             }
           ],
           "parameters": [
@@ -141,7 +141,7 @@
               "required": false
             }
           ],
-          "nickname": "Api::V1::Courses#destroy",
+          "nickname": "Api::V1::Schools#destroy",
           "method": "delete"
         }
       ]

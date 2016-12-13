@@ -3,10 +3,7 @@
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
   "apis": [
-    {
-      "path": "/api/v1/courses.{format}",
-      "description": "Courses Management"
-    }
+
   ],
   "authorizations": null,
   "info": {
