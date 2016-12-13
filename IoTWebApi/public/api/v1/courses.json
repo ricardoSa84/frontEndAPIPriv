@@ -45,6 +45,43 @@
               "message": "Course ID doesn't exist"
             }
           ],
+          "parameters": [
+            {
+              "paramType": "course",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "school",
+              "type": "nested_id",
+              "description": "optional",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": "school Id"
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "degree",
+              "type": "nested_id",
+              "description": "optional",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": "degree Id"
+              }
+            }
+          ],
           "nickname": "Api::V1::Courses#create",
           "method": "post"
         }
@@ -107,6 +144,41 @@
               "type": "required",
               "description": null,
               "required": false
+            },
+            {
+              "paramType": "course",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "school",
+              "type": "nested_id",
+              "description": "optional",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": "school Id"
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "degree",
+              "type": "nested_id",
+              "description": "optional",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": "degree Id"
+              }
             }
           ],
           "nickname": "Api::V1::Courses#update",

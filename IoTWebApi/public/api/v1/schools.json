@@ -45,6 +45,99 @@
               "message": "School ID doesn't exist"
             }
           ],
+          "parameters": [
+            {
+              "paramType": "course",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "country",
+              "type": "string",
+              "description": "Country",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "distric",
+              "type": "string",
+              "description": "Distric",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "city",
+              "type": "string",
+              "description": "City",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "county",
+              "type": "string",
+              "description": "County",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "postCode",
+              "type": "string",
+              "description": "Post Code",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "addressDetails",
+              "type": "string",
+              "description": "Address Details",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            }
+          ],
           "nickname": "Api::V1::Schools#create",
           "method": "post"
         }
@@ -102,11 +195,95 @@
           ],
           "parameters": [
             {
-              "paramType": "id",
-              "name": "integer",
-              "type": "required",
-              "description": null,
-              "required": false
+              "paramType": "course",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "country",
+              "type": "string",
+              "description": "Country",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "distric",
+              "type": "string",
+              "description": "Distric",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "city",
+              "type": "string",
+              "description": "City",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "county",
+              "type": "string",
+              "description": "County",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "postCode",
+              "type": "string",
+              "description": "Post Code",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
+            },
+            {
+              "paramType": "course",
+              "name": "addressDetails",
+              "type": "string",
+              "description": "Address Details",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+
+                ]
+              }
             }
           ],
           "nickname": "Api::V1::Schools#update",

@@ -50,9 +50,9 @@ module Api::V1
     summary "Creates a Courses item"
     notes "Creates a Courses item"
     #param :id, "Course ID"
-    param :course ,:name, :string, :integer, :optional, "Tlkhjhkj"
-    #param :path, :nested_id, :integer, :optional, "Team Id"
-    #param :path, :nested_id, :integer, :optional, "Team Id"
+    param_list :course ,:name, :string, :optional, "Name"
+    param_list :course, :school, :nested_id, :integer, :optional, "school Id"
+    param_list :course, :degree, :nested_id, :integer, :optional, "degree Id"
     #param :path, :nested_id, :integer, :optional, "Team Id"
 
     response :unauthorized
@@ -72,6 +72,9 @@ module Api::V1
     summary "Updates a Courses item"
     notes "Updates a Courses item"
     param :id, :integer, :required, "User ID"
+    param_list :course ,:name, :string, :optional, "Name"
+    param_list :course, :school, :nested_id, :integer, :optional, "school Id"
+    param_list :course, :degree, :nested_id, :integer, :optional, "degree Id"
     #param :path, :nested_id, :integer, :optional, "Team Id"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"

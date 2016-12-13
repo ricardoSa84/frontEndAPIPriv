@@ -4,13 +4,8 @@ module Api::V1
 
   swagger_controller :schools, "Schools Management"
 
-  swagger_api :index do
-    summary "Fetches all School items"
-    notes "This lists all the active Schools"
-    response :unauthorized
-    response :not_acceptable, "School ID doesn't exist"
-  end
-  
+
+
   # GET /schools
   def index
     @schools = School.all
@@ -18,7 +13,12 @@ module Api::V1
     render json: @schools
   end
 
-
+  swagger_api :index do
+    summary "Fetches all School items"
+    notes "This lists all the active Schools"
+    response :unauthorized
+    response :not_acceptable, "School ID doesn't exist"
+  end
 
   # GET /schools/1
   def show
@@ -49,6 +49,13 @@ module Api::V1
     summary "Creates a School item"
     notes "Creates a School item"
     #param :id, "Course ID"
+    param_list :course ,:name, :string, :optional, "Name"
+    param_list :course, :country, :string, :optional, "Country"
+    param_list :course, :distric, :string, :optional, "Distric"
+    param_list :course, :city, :string, :optional, "City"
+    param_list :course, :county, :string, :optional, "County"
+    param_list :course, :postCode, :string, :optional, "Post Code"
+    param_list :course, :addressDetails, :string, :optional, "Address Details"
     #param :path, :nested_id, :integer, :optional, "Team Id"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
@@ -66,7 +73,14 @@ module Api::V1
   swagger_api :update do
     summary "Updates a School item"
     notes "Updates a School item"
-    param :id, :integer, :required, "User ID"
+    #param :id, :integer, :required, "User ID"
+    param_list :course ,:name, :string, :optional, "Name"
+    param_list :course, :country, :string, :optional, "Country"
+    param_list :course, :distric, :string, :optional, "Distric"
+    param_list :course, :city, :string, :optional, "City"
+    param_list :course, :county, :string, :optional, "County"
+    param_list :course, :postCode, :string, :optional, "Post Code"
+    param_list :course, :addressDetails, :string, :optional, "Address Details"
     #param :path, :nested_id, :integer, :optional, "Team Id"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
