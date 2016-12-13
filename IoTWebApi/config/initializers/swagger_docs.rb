@@ -3,7 +3,7 @@
 Swagger::Docs::Config.base_api_controller = ActionController::API 
 
   Swagger::Docs::Config.register_apis({
-  "1.0" =>  {
+  "2.0" =>  {
     :controller_base_path => "",
     # the extension used for the API
     #:api_extension_type => :json,
