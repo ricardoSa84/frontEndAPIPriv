@@ -5,7 +5,7 @@
   "resourcePath": "courses",
   "apis": [
     {
-      "path": "/v1/schools/{school_id}/courses",
+      "path": "/v1/courses",
       "operations": [
         {
           "summary": "Fetches all Courses items",
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "path": "/v1/schools/{school_id}/courses",
+      "path": "/v1/courses",
       "operations": [
         {
           "summary": "Creates a Courses item",
@@ -88,7 +88,7 @@
       ]
     },
     {
-      "path": "/v1/schools/{school_id}/courses/{id}",
+      "path": "/v1/courses/{id}",
       "operations": [
         {
           "summary": "Fetches a Courses items",
@@ -120,7 +120,7 @@
       ]
     },
     {
-      "path": "/v1/schools/{school_id}/courses/{id}",
+      "path": "/v1/courses/{id}",
       "operations": [
         {
           "summary": "Updates a Courses item",
@@ -187,7 +187,7 @@
       ]
     },
     {
-      "path": "/v1/schools/{school_id}/courses/{id}",
+      "path": "/v1/courses/{id}",
       "operations": [
         {
           "summary": "Destroys a Courses item",

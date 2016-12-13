@@ -50,9 +50,9 @@ module Api::V1
     summary "Creates a Courses item"
     notes "Creates a Courses item"
     #param :id, "Course ID"
-    param_list :course ,:name, :string, :optional, "Name"
-    param_list :course, :school, :nested_id, :integer, :optional, "school Id"
-    param_list :course, :degree, :nested_id, :integer, :optional, "degree Id"
+    param :course ,:name, :string, :optional, "Name"
+    param :course, :school, :nested_id, :integer, :optional, "school Id"
+    param :course, :degree, :nested_id, :integer, :optional, "degree Id"
     #param :path, :nested_id, :integer, :optional, "Team Id"
 
     response :unauthorized

@@ -4,12 +4,12 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
-      "path": "/api/v1/courses.{format}",
-      "description": "Courses Management"
-    },
-    {
       "path": "/api/v1/schools.{format}",
       "description": "Schools Management"
+    },
+    {
+      "path": "/api/v1/courses.{format}",
+      "description": "Courses Management"
     }
   ],
   "authorizations": null,
