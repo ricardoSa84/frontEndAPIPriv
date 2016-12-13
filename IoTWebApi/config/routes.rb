@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
 
- #{|params| "/api/" + params[:api] + "_v1"}, via: :all
-
-#match "/api-docs" => redirect(status: 302),  via: [:get]
-
-
   resources :disciplines
 scope module: 'api' do
 		namespace :v1 do
@@ -35,9 +30,6 @@ scope module: 'api' do
 			resources :degrees
 			resources :rooms
 			resources :disciplines
-
-			#match "/api-docs" => redirect('/api-docs.json'), via: [:get]
-
 
 		  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 		end
