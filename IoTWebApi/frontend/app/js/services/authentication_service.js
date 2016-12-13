@@ -9,8 +9,8 @@ var credentials = {};
     register: function(credentials) {
       return $http.post('/v1/users',credentials);
     },
-    resetPassWord: function(email) {
-      return $http.post('/v1/resetpassword',email);
+    resetPassWord: function(resetData) {
+      return $http.post('/v1/resetpassword',resetData);
     },
     isAdmin: function(roleName) {
       return ( roleName == "Admin" ? true : false );
