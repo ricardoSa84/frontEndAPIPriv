@@ -4,10 +4,7 @@ module Api::V1
 
   swagger_controller :courses, "Courses Management"
 
-    #swagger_api :index do
-      #summary "Fetches all Courses items"
-      #notes "This lists all the active Courses"
-      #esponse :unauthorized
+  ponse :unauthorized
     #end
 
   # GET /courses
