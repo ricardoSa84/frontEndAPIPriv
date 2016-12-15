@@ -5,9 +5,18 @@
   "resourcePath": "schools",
   "apis": [
     {
-      "path": "/v1/schools",
+      "path": "/v1/schools.json",
       "operations": [
         {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authentication-Token",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            }
+          ],
           "summary": "Fetches all School items",
           "notes": "This lists all the active Schools",
           "responseMessages": [
@@ -28,9 +37,32 @@
       ]
     },
     {
-      "path": "/v1/schools",
+      "path": "/v1/schools.json",
       "operations": [
         {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authentication-Token",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "body",
+              "name": "body",
+              "type": "School",
+              "description": "Create a School",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "tag",
+              "type": "Tag",
+              "description": "Tag object",
+              "required": true
+            }
+          ],
           "summary": "Creates a School item",
           "notes": "Creates a School item",
           "responseMessages": [
@@ -45,7 +77,77 @@
               "message": "School ID doesn't exist"
             }
           ],
+          "nickname": "Api::V1::Schools#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/v1/schools/{id}.json",
+      "operations": [
+        {
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authentication-Token",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "User Id",
+              "required": false
+            }
+          ],
+          "summary": "Fetches a School item",
+          "notes": "This lists an active School",
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "School",
+              "message": "Success"
+            },
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "School ID doesn't exist"
+            }
+          ],
+          "nickname": "Api::V1::Schools#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/v1/schools/{id}.json",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authentication-Token",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
             {
               "paramType": "course",
               "name": "name",
@@ -138,47 +240,6 @@
               }
             }
           ],
-          "nickname": "Api::V1::Schools#create",
-          "method": "post"
-        }
-      ]
-    },
-    {
-      "path": "/v1/schools/{id}",
-      "operations": [
-        {
-          "summary": "Fetches a School item",
-          "notes": "This lists an active School",
-          "responseMessages": [
-            {
-              "code": 401,
-              "responseModel": null,
-              "message": "Unauthorized"
-            },
-            {
-              "code": 406,
-              "responseModel": null,
-              "message": "School ID doesn't exist"
-            }
-          ],
-          "parameters": [
-            {
-              "paramType": "id",
-              "name": "integer",
-              "type": "required",
-              "description": null,
-              "required": false
-            }
-          ],
-          "nickname": "Api::V1::Schools#show",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "path": "/v1/schools/{id}",
-      "operations": [
-        {
           "summary": "Updates a School item",
           "notes": "Updates a School item",
           "responseMessages": [
@@ -193,108 +254,24 @@
               "message": "School ID doesn't exist"
             }
           ],
-          "parameters": [
-            {
-              "paramType": "course",
-              "name": "name",
-              "type": "string",
-              "description": "Name",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "country",
-              "type": "string",
-              "description": "Country",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "distric",
-              "type": "string",
-              "description": "Distric",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "city",
-              "type": "string",
-              "description": "City",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "county",
-              "type": "string",
-              "description": "County",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "postCode",
-              "type": "string",
-              "description": "Post Code",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "addressDetails",
-              "type": "string",
-              "description": "Address Details",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            }
-          ],
           "nickname": "Api::V1::Schools#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/v1/schools/{id}",
+      "path": "/v1/schools/{id}.json",
       "operations": [
         {
+          "parameters": [
+            {
+              "paramType": "id",
+              "name": "integer",
+              "type": "required",
+              "description": null,
+              "required": false
+            }
+          ],
           "summary": "Destroys a School item",
           "notes": "Destroys a School item",
           "responseMessages": [
@@ -309,20 +286,86 @@
               "message": "School ID doesn't exist"
             }
           ],
-          "parameters": [
-            {
-              "paramType": "id",
-              "name": "integer",
-              "type": "required",
-              "description": null,
-              "required": false
-            }
-          ],
           "nickname": "Api::V1::Schools#destroy",
           "method": "delete"
         }
       ]
     }
   ],
-  "authorizations": null
+  "authorizations": null,
+  "models": {
+    "School": {
+      "id": "School",
+      "required": [
+        "id",
+        "country",
+        "city",
+        "postCode"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "User Id"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name"
+        },
+        "country": {
+          "type": "integer",
+          "description": "User Id"
+        },
+        "distric": {
+          "type": "string",
+          "description": "Name"
+        },
+        "city": {
+          "type": "integer",
+          "description": "User Id"
+        },
+        "county": {
+          "type": "string",
+          "description": "Name"
+        },
+        "postCode": {
+          "type": "integer",
+          "description": "User Id"
+        },
+        "addressDetails": {
+          "type": "string",
+          "description": "Name"
+        }
+      },
+      "description": "A School object."
+    },
+    "Tag": {
+      "id": "Tag",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "User Id"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name"
+        },
+        "type": {
+          "type": "string",
+          "description": "Tag Type",
+          "allowableValues": {
+            "valueType": "LIST",
+            "values": [
+              "info",
+              "warning",
+              "error"
+            ]
+          }
+        }
+      },
+      "description": "A Tag object."
+    }
+  }
 }

@@ -28,9 +28,11 @@ module Api::V1
   swagger_api :show do
     summary "Fetches a School item"
     notes "This lists an active School"
-    param :id, :integer, :required, "User ID"
-    #param :path, :nested_id, :integer, :optional, "Team Id"
+    param :path, :id, :integer, :optional, "User Id"
+    response :ok, "Success", :School
     response :unauthorized
+    response :not_acceptable
+    response :not_found
     response :not_acceptable, "School ID doesn't exist"
   end
 
@@ -49,16 +51,11 @@ module Api::V1
     summary "Creates a School item"
     notes "Creates a School item"
     #param :id, "Course ID"
-    param_list :course ,:name, :string, :optional, "Name"
-    param_list :course, :country, :string, :optional, "Country"
-    param_list :course, :distric, :string, :optional, "Distric"
-    param_list :course, :city, :string, :optional, "City"
-    param_list :course, :county, :string, :optional, "County"
-    param_list :course, :postCode, :string, :optional, "Post Code"
-    param_list :course, :addressDetails, :string, :optional, "Address Details"
+    param  :body ,:body, :School, :required, "Create a School"
     #param :path, :nested_id, :integer, :optional, "Team Id"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
+    param :form, :tag, :Tag, :required, "Tag object"
   end
 
   # PATCH/PUT /schools/1
@@ -100,6 +97,38 @@ module Api::V1
     response :not_acceptable, "School ID doesn't exist"
   end
 
+
+  swagger_model :School do
+    description "A School object."
+    property :id, :integer, :required, "User Id"
+    property :name, :string, :optional, "Name"
+     property :country, :integer, :required, "User Id"
+     property :distric, :string, :optional, "Name"
+     property :city, :integer, :required, "User Id"
+     property :county, :string, :optional, "Name"
+     property :postCode, :integer, :required, "User Id"
+     property :addressDetails, :string, :optional, "Name"
+  end
+
+  swagger_model :School do
+     description "A School object."
+     property :id, :integer, :required, "User Id"
+     property :name, :string, :optional, "Name"
+     property :country, :integer, :required, "User Id"
+     property :distric, :string, :optional, "Name"
+     property :city, :integer, :required, "User Id"
+     property :county, :string, :optional, "Name"
+     property :postCode, :integer, :required, "User Id"
+     property :addressDetails, :string, :optional, "Name"
+  end
+
+  swagger_model :Tag do
+    description "A Tag object."
+    property :id, :integer, :required, "User Id"
+    property :name, :string, :optional, "Name"
+    property_list :type, :string, :optional, "Tag Type", ["info", "warning", "error"]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_school
@@ -110,5 +139,5 @@ module Api::V1
     def school_params
       params.require(:school).permit(:name, :country, :distric, :city, :county, :postCode, :addressDetails)
     end
-  end
+  end 
 end

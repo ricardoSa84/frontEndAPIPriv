@@ -5,9 +5,18 @@
   "resourcePath": "courses",
   "apis": [
     {
-      "path": "/v1/courses",
+      "path": "/v1/courses.json",
       "operations": [
         {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authentication-Token",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            }
+          ],
           "summary": "Fetches all Courses items",
           "notes": "This lists all the active Courses",
           "responseMessages": [
@@ -28,9 +37,25 @@
       ]
     },
     {
-      "path": "/v1/courses",
+      "path": "/v1/courses.json",
       "operations": [
         {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authentication-Token",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "course",
+              "name": "name",
+              "type": "string",
+              "description": "Name",
+              "required": false
+            }
+          ],
           "summary": "Creates a Courses item",
           "notes": "Creates a Courses item",
           "responseMessages": [
@@ -45,52 +70,31 @@
               "message": "Course ID doesn't exist"
             }
           ],
-          "parameters": [
-            {
-              "paramType": "course",
-              "name": "name",
-              "type": "string",
-              "description": "Name",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "school",
-              "type": "nested_id",
-              "description": "optional",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": "school Id"
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "degree",
-              "type": "nested_id",
-              "description": "optional",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": "degree Id"
-              }
-            }
-          ],
           "nickname": "Api::V1::Courses#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/v1/courses/{id}",
+      "path": "/v1/courses/{id}.json",
       "operations": [
         {
+          "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authentication-Token",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "id",
+              "name": "integer",
+              "type": "required",
+              "description": null,
+              "required": false
+            }
+          ],
           "summary": "Fetches a Courses items",
           "notes": "This lists an active Course",
           "responseMessages": [
@@ -105,39 +109,23 @@
               "message": "Course ID doesn't exist"
             }
           ],
-          "parameters": [
-            {
-              "paramType": "id",
-              "name": "integer",
-              "type": "required",
-              "description": null,
-              "required": false
-            }
-          ],
           "nickname": "Api::V1::Courses#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/v1/courses/{id}",
+      "path": "/v1/courses/{id}.json",
       "operations": [
         {
-          "summary": "Updates a Courses item",
-          "notes": "Updates a Courses item",
-          "responseMessages": [
-            {
-              "code": 401,
-              "responseModel": null,
-              "message": "Unauthorized"
-            },
-            {
-              "code": 406,
-              "responseModel": null,
-              "message": "Course ID doesn't exist"
-            }
-          ],
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authentication-Token",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
             {
               "paramType": "id",
               "name": "integer",
@@ -181,17 +169,8 @@
               }
             }
           ],
-          "nickname": "Api::V1::Courses#update",
-          "method": "patch"
-        }
-      ]
-    },
-    {
-      "path": "/v1/courses/{id}",
-      "operations": [
-        {
-          "summary": "Destroys a Courses item",
-          "notes": "Destroys a Courses item",
+          "summary": "Updates a Courses item",
+          "notes": "Updates a Courses item",
           "responseMessages": [
             {
               "code": 401,
@@ -204,6 +183,15 @@
               "message": "Course ID doesn't exist"
             }
           ],
+          "nickname": "Api::V1::Courses#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/v1/courses/{id}.json",
+      "operations": [
+        {
           "parameters": [
             {
               "paramType": "id",
@@ -211,6 +199,20 @@
               "type": "required",
               "description": null,
               "required": false
+            }
+          ],
+          "summary": "Destroys a Courses item",
+          "notes": "Destroys a Courses item",
+          "responseMessages": [
+            {
+              "code": 401,
+              "responseModel": null,
+              "message": "Unauthorized"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Course ID doesn't exist"
             }
           ],
           "nickname": "Api::V1::Courses#destroy",
