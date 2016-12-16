@@ -26,14 +26,6 @@ angular.module("app").controller('LoginController',function($scope, $location, A
     .error(onLoginError);
   };
 
-  $scope.register = function() {
-    $location.path('/register');
-  };
-  
-  $scope.passRecovery = function() {
-    $location.path('/passRecovery');
-  };
-
 });
 
 
