@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.bodyInit {
+
+	background-color: #28282828 !important;
+	margin-top: 3.777rem;
+}
+
+.navbar{
+
+	background-color: #28282828;
+	padding: 0.25rem 1.25rem 1.50rem 1.25rem ;
+	text-align: center;
+}
+

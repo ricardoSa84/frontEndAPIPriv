@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css" media="all" />
   </head>
   <body ng-style="{'background-image':'url(/img/illustration-2000x1690-62.jpg)', 'background-size': 'cover' ,'background-repeat':'no-repeat'  , 'background-position': 'center center'} ">
-    <div class="row" >
+    <div  class="row bodyInit" >
       <div class="large-12">
-        <h1>OPEN DATA API Front End</h1>
+
 
         <div ng-include='"header.html"'></div>
         <div id="view" ng-view></div>
