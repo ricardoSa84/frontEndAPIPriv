@@ -1,5 +1,5 @@
 angular.module("app").controller('HomeController',function($scope, $location) {
-  	$scope.message = "HomeCtrl";
+  	$scope.message = "Just A simple test";
 
 	$scope.login = function() {
 	    $location.path('/login');
