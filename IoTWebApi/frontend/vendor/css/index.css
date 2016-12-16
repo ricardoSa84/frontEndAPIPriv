@@ -2,14 +2,14 @@
 
 .bodyInit {
 
-	background-color: #28282828 !important;
-	margin-top: 3.777rem;
+	background-color: #28282828  !important;
+	padding-top: 3.777rem;
 }
 
 .navbar{
 
-	background-color: #28282828;
-	padding: 0.25rem 1.25rem 1.50rem 1.25rem ;
+	background-color: #282828;
 	text-align: center;
+	vertical-align: middle;
 }
 
