@@ -1,6 +1,6 @@
 angular.module("app").controller('PassRecoveryController',function($scope, $location,AuthenticationService) {
  
-$scope.message = "PassRecoveryController";
+$scope.message = "";
 $scope.data = {email:""};
 
 $scope.recover = function() {

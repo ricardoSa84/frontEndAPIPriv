@@ -34,3 +34,57 @@
     </div>
   </div>
 </div>
+</div>
+
+<div class="container" ng-init="isAuth();getUser()">
+  <div id="alert-box">{{ message }}</div>
+    <div class="form">
+
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">    
+          <input type="text" name="name" placeholder="name" ng-model="credentials.name" ng-readonly="readOnly"/>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Surname</label>
+        <div class="col-sm-10">    
+          <input type="text" name="surname" placeholder="surname" ng-model="credentials.surname" ng-readonly="readOnly"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">    
+         <input type="text" name="email" placeholder="email" ng-model="credentials.email" ng-readonly="readOnly" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Token</label>
+        <div class="col-sm-8">    
+          <input type="text" name="api_key" placeholder="api_key" ng-model="credentials.api_key" readonly="true" />   
+        </div>
+        <div class="col-sm-2">   
+          <button id="btn_resetToken" type="button"  ng-click="resetToken()">ResetToken</button>
+        </div>
+      </div>
+    </div>    
+</div>
+
+
+
+<div class="container" ng-init="isAuth()">
+  <div id="alert-box">{{ message }}</div>
+      <div class="form">
+        <form class="login-form" ng-submit="login()">
+          <input type="text" name="username" placeholder="username" ng-model="credentials.username" required/>
+          <input type="password" name="password" placeholder="password" ng-model="credentials.password" required/>
+          <button id="log-in" type="submit" >Log In</button>
+           <p class="message">Not registered? <a href="#/register">Create an account</a></p>
+           <p class="message">Forgot your password? <a href="#/passRecovery">Reset your password</a></p>
+        </form>
+      </div>
+  <h1>{{token}}</h1>
+</div>
