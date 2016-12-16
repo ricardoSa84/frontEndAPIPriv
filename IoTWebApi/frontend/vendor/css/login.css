@@ -8,7 +8,7 @@
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: #101010;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
@@ -18,11 +18,11 @@
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #f2f2f2;
+  background: #FFFFFF;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
-  padding: 15px;
+  padding: 5px;
   box-sizing: border-box;
   font-size: 14px;
 }
@@ -33,6 +33,7 @@
   background: #4CAF50;
   width: 100%;
   border: 0;
+  margin-bottom: 15px;
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;

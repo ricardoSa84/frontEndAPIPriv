@@ -1,68 +1,27 @@
-<div id="login" class="row" ng-init="isAuth()">
-  <div class="large-6 large-offset-3">
-    <div class="alert-box">{{ message }}</div>
-    <form ng-submit="login()">
-      <fieldset class="radius">
-        <div class="row">
-          <div class="large-6 columns">
-            <input type="text" name="username" placeholder="username" ng-model="credentials.username" required/>
-          </div>
-            <div class="large-6 columns">
+<div class="container" ng-init="isAuth()">
+  <div class="alert-box">{{ message }}</div>
+    <div class="row">
+        <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
+          <div class="form">
+            <form class="login-form" ng-submit="login()">
+              <input type="text" name="username" placeholder="username" ng-model="credentials.username" required/>
               <input type="password" name="password" placeholder="password" ng-model="credentials.password" required/>
+              <button id="log-in" type="submit" >Log In</button>
+              <button id="register" type="submit" ng-click="register()">Register</button>
+              <button id="register" type="submit" ng-click="passRecovery()">Password Recovery</button>
+            </form>
           </div>
         </div>
-
-        <div class="row">
-          <div class="large-12 columns">
-            <button id="log-in" type="submit" class="button large expand radius">Log In</button>
-          </div>
-        </div>
-      </fieldset>
-    </form>
-    <div class="large-12 columns">
-      <button id="register" type="submit" class="button large expand radius" ng-click="register()">Register</button>
-      <button id="register" type="submit" class="button large expand radius" ng-click="passRecovery()">Password Recovery</button>
     </div>
-    <h1>{{token}}</h1>
-  </div>
+  <h1>{{token}}</h1>
 </div>
 
 
 
 
-<section class="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background mbr-after-navbar" id="header1-c" style="background-image: url(assets/images/illustration-2000x1690-46.jpg);">
 
-    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);"></div>
-
-    <div class="mbr-table-cell">
-
-        <div class="container">
-            <div class="row">
-                <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
-
-                    <div class="form">
-            <form class="register-form">
-              <input type="text" placeholder="username"/>
-              <input type="text" placeholder="surname"/>
-              <input type="password" placeholder="password"/>
-              <input type="password" placeholder="confirm password"/>
-              <input type="text" placeholder="email address"/>
-              <button>create</button>
-              <p class="message">Already registered? <a >Sign In</a></p>
-            </form>
-            <form class="login-form">
-              <input type="text" placeholder="username"/>
-              <input type="password" placeholder="password"/>
-              <button>login</button>
-              <p class="message">Not registered? <a>Create an account</a></p>
-            </form>
-          </div>
-        
-                </div>
-            </div>
-        </div>
-    </div>
 
     
 
-</section>
+
+            
