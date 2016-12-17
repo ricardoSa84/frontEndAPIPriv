@@ -15,6 +15,15 @@ class Course < ApplicationRecord
 		super(@degree)
 	end
 
+	def disciplines=(params)
+		@dis = [];
+		params.each do |disciplineId|
+		     @dis << Discipline.find( disciplineId[:id] )
+		end 		
+		super(@dis)	
+	end
+
+
 	#Overrides the Gets
 	def school	
 		super
@@ -22,9 +31,30 @@ class Course < ApplicationRecord
 	def degree		
 		super
  	end
-
+	def disciplines		
+		super
+ 	end
 
 end
 
-
+#POST
+# {
+#   "course":
+#   {
+#     "name": "inf",
+#     "school":
+#     {
+#     	"id": "10"
+#      },
+#      "degree":
+#      {
+#     	"id": "16"
+#      },
+#      "disciplines":
+#      [
+#     	{"id": "31"},
+#     	{"id": "32"}
+#   	]
+#   }
+# }
 

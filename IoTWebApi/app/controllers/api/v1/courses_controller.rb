@@ -48,7 +48,7 @@ module Api::V1
 
     # Only allow a trusted parameter "white list" through.
     def course_params
-      params.require(:course).permit(:name, :school => [:id], :degree => [:id] )
+      params.require(:course).permit(:name, :school => [:id], :degree => [:id], :disciplines => [:id] )
       #params.require(:course).permit(:name, :school_attributes => [:id, :name] )
     end
   end
