@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="HeaderController">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -18,15 +18,20 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
 
 
-
-            <ul class="nav navbar-nav navbar-right navLinks">
+            <ul class="nav navbar-nav navbar-center navLinks">
                 <li><a href="#/documentation">Documentation</a>
                 </li>
                 <li><a href="#/examples">Examples</a>
                 </li>
-                <li><a href="#/login">Log-In</a>
+            </ul>
+            <ul class="nav navbar-nav navbar-right navLinks">
+                <li ng-if="!isLoggedIn()"><a href="#/login">Log-In</a>
                 </li>
-                <li><a href="#/register">Register</a>
+                <li ng-if="!isLoggedIn()"><a href="#/register">Register</a>
+                </li>
+                <li ng-if="isLoggedIn()" ng-click="logout()"><a href="" >Log-Out</a>
+                </li>
+                <li ng-if="isLoggedIn()" > <a href="" ng-click="goToUserManagment()">{{name}}</a>
                 </li>
             </ul>
         </div>

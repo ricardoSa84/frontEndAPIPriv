@@ -1,6 +1,5 @@
 angular.module("app").factory('AuthenticationService', function($http,SessionService ) {
   
-var credentials = {};
 
   return {
     login: function(credentials) {
