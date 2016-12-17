@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
 	belongs_to :school
-	belongs_to :degree
+	has_one :degree
 
     has_and_belongs_to_many :disciplines
 

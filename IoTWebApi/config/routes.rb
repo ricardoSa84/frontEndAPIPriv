@@ -22,6 +22,7 @@ scope module: 'api' do
 
 			resources :courses do
 				resources :disciplines
+				resources :degrees
 			end
 
   			resources :roles
