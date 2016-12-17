@@ -1,6 +1,6 @@
 class Course < ApplicationRecord
 	belongs_to :school
-	has_one :degree
+	belongs_to :degree, :foreign_key => 'degree_id', :class_name => 'Degree'
 
     has_and_belongs_to_many :disciplines
 
@@ -9,6 +9,7 @@ class Course < ApplicationRecord
 		@school = School.find( params[:id])	
 		super(@school)
 	end
+
 	def degree=(params)
 		@degree = Degree.find( params[:id])	
 		super(@degree)

@@ -209,10 +209,14 @@ puts "############### Adicionar Níveis de cursos ################"
 @r4 = Degree.create(description:'Doutoramento')
 @r5 = Degree.create(description:'Pós-Graduação')
 
+#puts @r1.inspect
+
 
 ##ainda não está a funcionar para baixo
 
 puts "#################### Adicionar  cursos ####################"
+
+#puts @s1.inspect
 
 #@s1.courses.create(name:'Administração de Bases de Dados',degree:@r1)
 @course1 = @s1.courses.create(name:'Administração de Bases de Dados',degree:@r1)
