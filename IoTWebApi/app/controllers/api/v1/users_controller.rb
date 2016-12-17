@@ -3,8 +3,8 @@ module Api::V1
   before_action :set_user, only: [:show, :update, :destroy, :resetApiToken, :isUserPassword ]
 
   #only skip if action is create
-  skip_before_action :authenticate , :only => [:create]
-  skip_before_action :autorize, :only => [:create]
+  skip_before_action :authenticate , :only => [:create,:resetPassword]
+  skip_before_action :autorize, :only => [:create,:resetPassword]
 
   # GET /users
   def index
@@ -64,6 +64,45 @@ module Api::V1
       render json: false
     end
   end
+
+ def resetPassword
+    if(params[:resetToken] != nil)
+      @user = User.find_by(resetToken: params[:resetToken]);
+      if(@user != nil)
+        if(@user.resetDate + 1.day > DateTime.now)
+            @user.password = params[:password]
+            @user.resetToken = nil
+            @user.resetDate = nil
+            if @user.save
+              render :json => {message: "Sucess"}
+            else
+              render :json => { :errors => @user.errors.full_messages }, :status => 422
+            end
+        else
+            @user.resetToken = nil
+            @user.resetDate = nil
+            @user.save
+            render :json => { :errors => @user.errors.full_messages }, :status => 422
+        end
+      else
+        render :json => { :message => "User was not found" }, :status => 422
+      end
+    else
+      @user = User.find_by(email: params[:email]);
+      if(@user != nil)
+        @user.resetToken = SecureRandom.uuid;
+        @user.resetDate = DateTime.now;
+        if @user.save
+          UserMailer.mailPassRecovery(@user).deliver_later
+        else
+          render :json => { :errors => @user.errors.full_messages }, :status => 422
+        end
+      else
+        render :json => { :message => "User was not found" }, :status => 422
+      end
+    end
+         
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
