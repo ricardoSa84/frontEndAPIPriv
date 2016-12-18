@@ -13,7 +13,7 @@ angular.module("app").controller('LoginController',function($scope, $location, A
      //Sets the Role on session vaeriable
      SessionService.setLoggedRole(data.role.name); 
      //Sets the name
-     SessionService.setLoggedRole(data.name + " " + data.surname); 
+     SessionService.setLoggedName(data.name + " " + data.surname); 
      SessionService.setSession(true);
      $location.path('/managment/'+ data.id );
   };

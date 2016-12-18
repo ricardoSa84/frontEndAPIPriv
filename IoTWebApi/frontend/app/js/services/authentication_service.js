@@ -3,7 +3,7 @@ angular.module("app").factory('AuthenticationService', function($http,SessionSer
 
   return {
     login: function(credentials) {
-    	return $http.post('/v1/login',credentials)
+    	return $http.post('/v1/login',credentials);
     },
     register: function(credentials) {
       return $http.post('/v1/users',credentials);
@@ -12,7 +12,7 @@ angular.module("app").factory('AuthenticationService', function($http,SessionSer
       return $http.post('/v1/resetpassword',resetData);
     },
     isAdmin: function(roleName) {
-      return ( roleName == "Admin" ? true : false );
+      return ( roleName === "Admin" ? true : false );
     }    
   };
 });

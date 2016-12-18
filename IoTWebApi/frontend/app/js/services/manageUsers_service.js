@@ -23,7 +23,7 @@ angular.module("app").factory('ManageUserService', function($http) {
       return $http.delete('/v1/users/'+ id);
     },
     isUserPassword: function(user) {
-      var id = user.id
+      var id = user.id;
       return $http.post('/v1/isUserPassword/'+ id,user);
     }
   };

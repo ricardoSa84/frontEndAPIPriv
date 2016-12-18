@@ -6,7 +6,7 @@ angular.module("app").controller('HeaderController',function($scope, $location,$
   $scope.isLoggedIn = function() {
   	var loggedIn = SessionService.isLoggedIn();
   	if(loggedIn){
-  		$scope.name = "Bem Vindo "+ SessionService.getLoggedRole() + " !";
+  		$scope.name = "Bem Vindo "+ SessionService.getLoggedName() + " !";
   	}
 	return loggedIn;
   };
