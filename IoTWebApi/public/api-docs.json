@@ -4,10 +4,6 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
-      "path": "/api/v1/api.{format}",
-      "description": "tag Management"
-    },
-    {
       "path": "/api/v1/schools.{format}",
       "description": "Schools Management"
     },

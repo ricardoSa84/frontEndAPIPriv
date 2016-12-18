@@ -213,19 +213,6 @@
     "School": {
       "id": "School",
       "required": [
-        "school"
-      ],
-      "properties": {
-        "school": {
-          "type": "sc",
-          "description": "User Id"
-        }
-      },
-      "description": "A School object."
-    },
-    "sc": {
-      "id": "sc",
-      "required": [
         "id",
         "country",
         "city",

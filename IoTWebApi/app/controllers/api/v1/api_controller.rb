@@ -3,21 +3,8 @@ module Api::V1
     # Generic API stuff here
 	
 	before_action :authenticate , :except => [:login]
-                  #,:if => Proc.new { |c| c.request.format != 'application/json' }
 	before_action :autorize, :except => [:login] 
-                  #,:if => Proc.new { |c| c.request.format != 'application/json' }
 
-
-
-
-  swagger_controller :tag, "tag Management"
-
-  swagger_model :Tag do
-    description "A Tag object."
-    property :id, :integer, :required, "User Id"
-    property :name, :string, :optional, "Name"
-    property_list :type, :string, :optional, "Tag Type", ["info", "warning", "error"]
-  end
 
 
 

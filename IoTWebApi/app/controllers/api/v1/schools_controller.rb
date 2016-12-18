@@ -88,10 +88,6 @@ module Api::V1
 
 
   swagger_model :School do
-    description "A School object."
-    property :school, :sc, :required, "User Id"
-  end
-  swagger_model :sc do
      description "A School object."
      property :id, :integer, :required, "User Id"
      property :name, :string, :optional, "Name"
