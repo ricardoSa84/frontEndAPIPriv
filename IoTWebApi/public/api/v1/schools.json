@@ -1,5 +1,5 @@
 {
-  "apiVersion": "2.0",
+  "apiVersion": "1.0",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
   "resourcePath": "schools",
@@ -11,7 +11,7 @@
           "parameters": [
             {
               "paramType": "header",
-              "name": "Authentication-Token",
+              "name": "Authorization",
               "type": "string",
               "description": "Authentication token",
               "required": true
@@ -43,7 +43,7 @@
           "parameters": [
             {
               "paramType": "header",
-              "name": "Authentication-Token",
+              "name": "Authorization",
               "type": "string",
               "description": "Authentication token",
               "required": true
@@ -53,13 +53,6 @@
               "name": "body",
               "type": "School",
               "description": "Create a School",
-              "required": true
-            },
-            {
-              "paramType": "form",
-              "name": "tag",
-              "type": "Tag",
-              "description": "Tag object",
               "required": true
             }
           ],
@@ -89,7 +82,7 @@
           "parameters": [
             {
               "paramType": "header",
-              "name": "Authentication-Token",
+              "name": "Authorization",
               "type": "string",
               "description": "Authentication token",
               "required": true
@@ -143,101 +136,24 @@
           "parameters": [
             {
               "paramType": "header",
-              "name": "Authentication-Token",
+              "name": "Authorization",
               "type": "string",
               "description": "Authentication token",
               "required": true
             },
             {
-              "paramType": "course",
-              "name": "name",
-              "type": "string",
-              "description": "Name",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "User Id",
+              "required": false
             },
             {
-              "paramType": "course",
-              "name": "country",
-              "type": "string",
-              "description": "Country",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "distric",
-              "type": "string",
-              "description": "Distric",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "city",
-              "type": "string",
-              "description": "City",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "county",
-              "type": "string",
-              "description": "County",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "postCode",
-              "type": "string",
-              "description": "Post Code",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
-            },
-            {
-              "paramType": "course",
-              "name": "addressDetails",
-              "type": "string",
-              "description": "Address Details",
-              "required": false,
-              "allowableValues": {
-                "valueType": "LIST",
-                "values": [
-
-                ]
-              }
+              "paramType": "body",
+              "name": "body",
+              "type": "School",
+              "description": "Create a School",
+              "required": true
             }
           ],
           "summary": "Updates a School item",
@@ -265,10 +181,10 @@
         {
           "parameters": [
             {
-              "paramType": "id",
-              "name": "integer",
-              "type": "required",
-              "description": null,
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "User Id",
               "required": false
             }
           ],
@@ -296,6 +212,19 @@
   "models": {
     "School": {
       "id": "School",
+      "required": [
+        "school"
+      ],
+      "properties": {
+        "school": {
+          "type": "sc",
+          "description": "User Id"
+        }
+      },
+      "description": "A School object."
+    },
+    "sc": {
+      "id": "sc",
       "required": [
         "id",
         "country",
@@ -337,35 +266,6 @@
         }
       },
       "description": "A School object."
-    },
-    "Tag": {
-      "id": "Tag",
-      "required": [
-        "id"
-      ],
-      "properties": {
-        "id": {
-          "type": "integer",
-          "description": "User Id"
-        },
-        "name": {
-          "type": "string",
-          "description": "Name"
-        },
-        "type": {
-          "type": "string",
-          "description": "Tag Type",
-          "allowableValues": {
-            "valueType": "LIST",
-            "values": [
-              "info",
-              "warning",
-              "error"
-            ]
-          }
-        }
-      },
-      "description": "A Tag object."
     }
   }
 }
