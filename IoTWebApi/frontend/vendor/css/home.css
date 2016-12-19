@@ -13,8 +13,6 @@ p.lead,
   margin-bottom: 2.3125rem; 
 }
 
-
-
 .mbr-section-title + .mbr-section-subtitle {
   margin-top: -21px; 
 }
@@ -75,4 +73,7 @@ p.lead,
 .home {
   color:#FFFFFF !important;
   text-align: center;
+}
+#view{
+  min-height:87%;
 }

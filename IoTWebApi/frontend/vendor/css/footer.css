@@ -1,37 +1,26 @@
 /* Footer Styles */
+
 footer{
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background-color: #282828;
-    /*position: fixed;*/
     height: 30px;
     clear:both;
-    margin-left:0 auto!important;
-    margin-right:0 auto!important;
+    margin:0 !important;
+    height:100%;
 }
+
 
 .block {
-    display: block;
-}
-
-.floatLeft {
-     float: left !important;
-}
-
-.clearBoth {
-    clear: both;
-}
-
-.footerAuthors {
-    margin-left: 5px;
-    margin-right: 5px;
+    display:block;
     color: white;
     font-size: 10px;
     font-family: "Roboto", sans-serif;
+    text-align: center;
 }
 
-.authors {
-	margin-left:0 auto;
-	margin-right:0 auto;
+.form-inline {
+    text-align: center;
+}
+.form-group {
+    margin-right: 10px;
 }
