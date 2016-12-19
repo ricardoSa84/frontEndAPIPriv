@@ -1,14 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 #imgIPTLogo {
-  height: 2.555rem;
+	height: 2.555rem;
 }
 
 
 
 div.navbar-header{  
-
-  padding: 0.25rem 1.25rem 1.0rem 1.25rem ;
+	padding: 0.25rem 1.25rem 1.0rem 1.25rem ;
 }
 
 .navLinks {

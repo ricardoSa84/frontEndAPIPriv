@@ -6,8 +6,8 @@
   margin: auto;
 }
 .form {
-  position: relative;
-  z-index: 1;
+  /*position: relative;*/
+  /*z-index: 1;*/
   background: #282828;
   max-width: 360px;
   margin: auto;

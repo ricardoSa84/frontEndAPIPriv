@@ -34,8 +34,13 @@ angular.module("ui").directive("uiAccordion", function () {
 		link: function (scope, element, attrs, ctrl) {
 			ctrl.registerAccordion(scope);
 			scope.open = function () {
+				var before = scope.isOpened;
 				ctrl.closeAll();
-				scope.isOpened= true;
+				if(before){
+					scope.isOpened = false;
+				}else{
+					scope.isOpened = true;
+				}
 			};
 		}
 	};

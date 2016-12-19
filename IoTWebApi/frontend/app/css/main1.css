@@ -9,12 +9,12 @@ For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap
 /* Global Styles */
 
 html, body {
-    height: 100%;
+  position: relative;
+  height: 100vh;
 }
 
 body {
     padding-top: 50px;
-    padding-bottom: 20px;
 }
 
 .dropdown {
@@ -122,27 +122,20 @@ body {
     font-style: italic;
 }
 
-/* Footer Styles */
-footer {
-    background-color: #282828;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    margin-top: 5px;
-    padding-bottom: 5px;
-}
-
 #view {
-    margin:0 auto;
+    margin-top: 2.7rem;
+    margin-left:0 auto;
+    margin-right:0 auto;
+    margin-bottom: 30px;
 }
 
-.block {
-    display: block;
+
+#alert-box {
+    color: #19602e;
+    font-size: 10px;
+    margin-bottom: 10px;
 }
 
-.inline {
-    display: inline;
-}
 /* Responsive Styles */
 @media (max-width: 767px) {
 
