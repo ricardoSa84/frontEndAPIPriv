@@ -51,7 +51,7 @@
             {
               "paramType": "body",
               "name": "body",
-              "type": "Course",
+              "type": "Degree",
               "description": "Create a Degree",
               "required": true
             }
@@ -91,7 +91,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "Degree ID",
               "required": false
             }
           ],
@@ -145,7 +145,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "Degree ID",
               "required": false
             },
             {
@@ -184,7 +184,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "Degree ID",
               "required": false
             }
           ],
@@ -218,7 +218,7 @@
       "properties": {
         "id": {
           "type": "integer",
-          "description": "User Id"
+          "description": "Degree ID"
         },
         "description": {
           "type": "string",

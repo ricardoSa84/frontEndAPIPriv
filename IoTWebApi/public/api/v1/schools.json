@@ -91,7 +91,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "School ID",
               "required": false
             }
           ],
@@ -145,7 +145,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "School ID",
               "required": false
             },
             {
@@ -184,7 +184,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "School ID",
               "required": false
             }
           ],
@@ -221,7 +221,7 @@
       "properties": {
         "id": {
           "type": "integer",
-          "description": "User Id"
+          "description": "School ID"
         },
         "name": {
           "type": "string",
