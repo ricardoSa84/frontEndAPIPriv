@@ -89,6 +89,9 @@ module Api::V1
      description "A Project object."
      property :id, :integer, :required, "Project ID"
      property :name, :string, :optional, "Name"
+     property :description, :string, :optional, "Description"
+     property :grade, :integer, :optional, "Grade"
+     property :discipline_id, :string, :optional, "Discipline ID"
     end
 
     private
