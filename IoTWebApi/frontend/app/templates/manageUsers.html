@@ -1,6 +1,6 @@
-<div class="container page-wrap" ng-init="isAuth();isAdmin();getUsersAndRoles();getRoles();">
+<div class="container" ng-init="isAuth();isAdmin();getUsersAndRoles();getRoles();">
   <div id="alert-box">{{ message }}</div>
-  <form name="manageUserForm">
+  <form name="manageUserForm" class="formManagement">
     <table ng-show="usersRoles.length > 0" class="marginAuto formLike">
     <tr>
       <th>Name</th>
@@ -21,8 +21,8 @@
       </select>
       </td>
       <td><button ng-click="viewUser(user)">View</button></td>
-      <td><button ng-click="updateUser(user,newRole)" >Update</button></td>
-      <td><button  ng-click="deleteUser(user)">Delete</button></td>
+      <td><button class="updateBtn" ng-click="updateUser(user,newRole)" >Update</button></td>
+      <td><button class="deleteBtn" ng-click="deleteUser(user)">Delete</button></td>
     </tr>
     <tr >
       <td colspan="6">
