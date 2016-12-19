@@ -5,12 +5,15 @@ angular.module("app").controller('managmentController', function($scope, $locati
 
   $scope.changePassword = false;
 
+var onGetUserSuccess, onGetUserError, onResetTokenSuccess, onResetTokenError;
+var onUpdateUserDataSuccess, onUpdateUserDataError;
+ 
   //Authentication
   $scope.isAuth = function() {
     if(!SessionService.isLoggedIn()){
         $location.path('/login');
     }
-  }
+  };
 
 
    //--GetUser 
@@ -18,16 +21,16 @@ angular.module("app").controller('managmentController', function($scope, $locati
       //gets the id from the route
       var id = $routeParams.id;
       //protection for users. Only admins can view all profiles
-      if( !($scope.isAdmin() || SessionService.getLoggedID() == id) ){
+      if( !($scope.isAdmin() || SessionService.getLoggedID() === id) ){
         id=SessionService.getLoggedID();
       }
       ManageUserService.getUser(id).success(onGetUserSuccess).error(onGetUserError);
   }; 
-  var onGetUserSuccess = function(data) {
+   onGetUserSuccess = function(data) {
      $scope.credentials = data;
      $scope.message = "Success...";
   };
-  var onGetUserError = function(data) {
+   onGetUserError = function(data) {
      $scope.message = data.exception;
   };  
 
@@ -37,13 +40,13 @@ angular.module("app").controller('managmentController', function($scope, $locati
     var id = $scope.credentials.id;
     ManageUserService.resetApiKey(id).success(onResetTokenSuccess).error(onResetTokenError);
   };
-  var onResetTokenSuccess = function(data) {
+   onResetTokenSuccess = function(data) {
      $scope.credentials.api_key = data.api_key;
      //sets the new token on session
      SessionService.setLoggedToken(data.api_key); 
      $scope.message = "New token generated...";
   };  
-  var onResetTokenError = function(data) {
+   onResetTokenError = function(data) {
      $scope.message = data.exception;
   };  
 
@@ -51,24 +54,24 @@ angular.module("app").controller('managmentController', function($scope, $locati
   //update User Data
   $scope.updateUserData = function() {
     var user = $scope.credentials;
-    user = {user:user}
+    user = {user:user};
     delete user.user['api_key'];
     delete user.user['role'];
     ManageUserService.updateUser(user).success(onUpdateUserDataSuccess).error(onUpdateUserDataError);
   };
-  var onUpdateUserDataSuccess = function(data) {
+   onUpdateUserDataSuccess = function(data) {
      $scope.credentials = data;
      $scope.message = "Data update success...";
      $scope.editUserData();    
   };  
-  var onUpdateUserDataError = function(data) {
+   onUpdateUserDataError = function(data) {
      $scope.message = data.exception;
   }; 
 
 
   //Edit Button
   $scope.editUserData = function() {
-    $scope.readOnly = ( $scope.readOnly == true ? false : true);
+    $scope.readOnly = ( $scope.readOnly === true ? false : true);
   };
 
   //Navigation----
@@ -84,7 +87,7 @@ angular.module("app").controller('managmentController', function($scope, $locati
   };
 
   $scope.canChangePassword = function() {
-    return ((SessionService.getLoggedID() == $routeParams.id) ? true : false);
+    return ((SessionService.getLoggedID() === $routeParams.id) ? true : false);
   };
 
   $scope.isAdmin = function() {
