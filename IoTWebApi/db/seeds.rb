@@ -20,6 +20,7 @@ Course.delete_all
 Degree.delete_all
 School.delete_all
 Discipline.delete_all
+Project.delete_all
 
 puts ""
 puts "######### Apagou com sucesso os dados anteriores ##########"
@@ -380,7 +381,19 @@ puts "############# Ligação - Courses / Disciplines #############"
 @course38.disciplines << @discipline29
 @course38.disciplines << @discipline30
 
+puts "##################### Adicionar projectos #################"
 
+@project1 = Project.create(name:'Prj1',description:'Descr Proj 1',grade:10,discipline:@discipline1)
+@project2 = Project.create(name:'Prj2',description:'Descr Proj 2',grade:10,discipline:@discipline2)
+@project3 = Project.create(name:'Prj3',description:'Descr Proj 3',grade:10,discipline:@discipline3)
+@project4 = Project.create(name:'Prj4',description:'Descr Proj 4',grade:10,discipline:@discipline4)
+@project5 = Project.create(name:'Prj5',description:'Descr Proj 5',grade:10,discipline:@discipline5)
+@project6 = Project.create(name:'Prj6',description:'Descr Proj 6',grade:10,discipline:@discipline6)
+@project7 = Project.create(name:'Prj7',description:'Descr Proj 7',grade:10,discipline:@discipline7)
+@project8 = Project.create(name:'Prj8',description:'Descr Proj 8',grade:10,discipline:@discipline8)
+@project9 = Project.create(name:'Prj9',description:'Descr Proj 9',grade:10,discipline:@discipline9)
+@project10 = Project.create(name:'Prj10',description:'Descr Proj 10',grade:10,discipline:@discipline10)
+@project11 = Project.create(name:'Prj11',description:'Descr Proj 11',grade:10,discipline:@discipline11)
 
 puts "################## Carregado com sucesso ##################"
 
