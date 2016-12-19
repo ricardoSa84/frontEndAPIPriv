@@ -152,7 +152,7 @@
               "paramType": "body",
               "name": "body",
               "type": "School",
-              "description": "Create a School",
+              "description": "Updates a School",
               "required": true
             }
           ],
@@ -229,27 +229,27 @@
         },
         "country": {
           "type": "integer",
-          "description": "User Id"
+          "description": "Country"
         },
         "distric": {
           "type": "string",
-          "description": "Name"
+          "description": "District"
         },
         "city": {
           "type": "integer",
-          "description": "User Id"
+          "description": "City"
         },
         "county": {
           "type": "string",
-          "description": "Name"
+          "description": "County"
         },
         "postCode": {
           "type": "integer",
-          "description": "User Id"
+          "description": "Post Code"
         },
         "addressDetails": {
           "type": "string",
-          "description": "Name"
+          "description": "Address Details"
         }
       },
       "description": "A School object."

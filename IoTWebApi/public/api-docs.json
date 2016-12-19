@@ -10,6 +10,18 @@
     {
       "path": "/api/v1/courses.{format}",
       "description": "Courses Management"
+    },
+    {
+      "path": "/api/v1/degrees.{format}",
+      "description": "Degrees Management"
+    },
+    {
+      "path": "/api/v1/rooms.{format}",
+      "description": "Rooms Management"
+    },
+    {
+      "path": "/api/v1/disciplines.{format}",
+      "description": "Disciplines Management"
     }
   ],
   "authorizations": null,

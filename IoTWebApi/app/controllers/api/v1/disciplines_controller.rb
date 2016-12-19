@@ -89,6 +89,7 @@ module Api::V1
      description "A Discipline object."
      property :id, :integer, :required, "User Id"
      property :name, :string, :optional, "Name"
+     response :unauthorized
     end
 
     private

@@ -48,7 +48,6 @@ module Api::V1
   swagger_api :create do
     summary "Creates a Course item"
     notes "Creates a Course item"
-    #param :course ,:name, :string, :optional, "Name"
     param  :body ,:body, :Course, :required, "Create a Course"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
