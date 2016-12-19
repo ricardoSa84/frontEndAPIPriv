@@ -11,14 +11,6 @@ angular.module('app').config(function($routeProvider, $locationProvider,$httpPro
     controller: 'LoginController'
   });
   
-   $routeProvider.when('/login/:token', {
-   templateUrl: 'login.html',
-   controller: 'paramController',
-   params: {
-         token: 'token'
-       }
-  });
-
   $routeProvider.when('/managment/:id', {
     templateUrl: 'managment.html',
     controller: 'managmentController',
@@ -51,9 +43,20 @@ angular.module('app').config(function($routeProvider, $locationProvider,$httpPro
     templateUrl: 'passRecovery.html',
     controller: 'PassRecoveryController'
   });
+
+   $routeProvider.when('/changePassword/:token', {
+   templateUrl: 'changePassword.html',
+   controller: 'ChangePasswordController'
+  });
+
   $routeProvider.when('/changePassword', {
     templateUrl: 'changePassword.html',
     controller: 'ChangePasswordController'
+  });
+
+  $routeProvider.when('/resetConfirm', {
+    templateUrl: 'resetConfirm.html',
+    controller: 'ResetConfirmController'
   });
 
   $routeProvider.otherwise({ redirectTo: '/home' });

@@ -39,7 +39,7 @@ module Api::V1
       @room = Room.new(room_params)
 
       if @room.save
-        render json: @room, status: :created, location: @room
+        render json: @room, status: :created#, location: @room
       else
         render json: @room.errors, status: :unprocessable_entity
       end
@@ -112,7 +112,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def room_params
-        params.require(:room).permit(:description, :projector, :seats)
+        params.require(:room).permit(:description, :projector, :seats, :school => [:id])
       end
   end
 end

@@ -39,7 +39,7 @@ module Api::V1
       @discipline = Discipline.new(discipline_params)
 
       if @discipline.save
-        render json: @discipline, status: :created, location: @discipline
+        render json: @discipline, status: :created#, location: @discipline
       else
         render json: @discipline.errors, status: :unprocessable_entity
       end
@@ -99,7 +99,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def discipline_params
-        params.require(:discipline).permit(:name)
+        params.require(:discipline).permit(:name, :courses => [:id])
       end
   end
 end
