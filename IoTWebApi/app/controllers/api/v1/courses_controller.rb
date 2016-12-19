@@ -12,8 +12,8 @@ module Api::V1
   end
 
   swagger_api :index do
-    summary "Fetches all Courses items"
-    notes "This lists all the active Courses"
+    summary "Fetches all Course items"
+    notes "This lists all the active Course"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -26,8 +26,8 @@ module Api::V1
   swagger_api :show do
     summary "Fetches a Course items"
     notes "This lists an active Course"
-    param :path, :id, :integer, :optional, "User Id"
-    response :ok, "Success", :Course
+    param :path, :id, :integer, :optional, "Course ID"
+    response :ok, "Success", :course
     response :unauthorized
     response :not_acceptable
     response :not_found
@@ -48,7 +48,7 @@ module Api::V1
   swagger_api :create do
     summary "Creates a Course item"
     notes "Creates a Course item"
-    param  :body ,:body, :Course, :required, "Create a Course"
+    param  :body ,:body, :course, :required, "Create a Course"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -65,7 +65,7 @@ module Api::V1
   swagger_api :update do
     summary "Updates a Course item"
     notes "Updates a Course item"
-    param :path, :id, :integer, :optional, "User Id"
+    param :path, :id, :integer, :optional, "Course ID"
     param :body ,:body, :course, :required, "Updates a Course"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
@@ -79,19 +79,19 @@ module Api::V1
   swagger_api :destroy do
     summary "Destroys a Courses item"
     notes "Destroys a Courses item"
-    param :path, :id, :integer, :optional, "User Id"
+    param :path, :id, :integer, :optional, "Course ID"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
 
  swagger_model :course do
     description "A Course object."
-    property :Course, :cos, :required, "Course Id"
+    property :Course, :cos, :required, "Course ID"
   end
   
   swagger_model :cos do
      description "A Course aux object."
-     property :id, :integer, :required, "Course Id"
+     property :id, :integer, :required, "Course ID"
      property :name, :string, :required, "Name"
      property :school, :school, :required, "School"
      property :degree, :degree, :required, "Degree"
@@ -101,16 +101,16 @@ module Api::V1
 
   swagger_model :school do
     description "A School object."
-    property :id, :integer, :required, "School Id"
+    property :id, :integer, :required, "School ID"
   end
 
   swagger_model :degree do
     description "A Degree object."
-    property :id, :integer, :required, "Degree Id"
+    property :id, :integer, :required, "Degree ID"
   end
   swagger_model :disciplines do
     description "A Disciplines object."
-    property :id, :integer, :required, "Disciplines Id"
+    property :id, :integer, :required, "Disciplines ID"
   end
 
   private

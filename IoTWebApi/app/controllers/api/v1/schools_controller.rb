@@ -26,7 +26,7 @@ module Api::V1
   swagger_api :show do
     summary "Fetches a School item"
     notes "This lists an active School"
-    param :path, :id, :integer, :optional, "User Id"
+    param :path, :id, :integer, :optional, "School ID"
     response :ok, "Success", :School
     response :unauthorized
     response :not_acceptable
@@ -65,7 +65,7 @@ module Api::V1
   swagger_api :update do
     summary "Updates a School item"
     notes "Updates a School item"
-    param :path, :id, :integer, :optional, "User Id"
+    param :path, :id, :integer, :optional, "School ID"
     param :body ,:body, :School, :required, "Updates a School"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
@@ -79,7 +79,7 @@ module Api::V1
   swagger_api :destroy do
     summary "Destroys a School item"
     notes "Destroys a School item"
-    param :path, :id, :integer, :optional, "User Id"
+    param :path, :id, :integer, :optional, "School ID"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
   end
@@ -87,7 +87,7 @@ module Api::V1
 
   swagger_model :School do
      description "A School object."
-     property :id, :integer, :required, "User Id"
+     property :id, :integer, :required, "School ID"
      property :name, :string, :optional, "Name"
      property :country, :integer, :required, "Country"
      property :distric, :string, :optional, "District"
