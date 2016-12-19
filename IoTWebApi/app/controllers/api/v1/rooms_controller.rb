@@ -85,12 +85,23 @@ module Api::V1
       response :not_acceptable, "Room ID doesn't exist"
     end
 
-    swagger_model :Room do
-     description "A Room object."
+    swagger_model :Rm do
+     description "A Aux Room object."
      property :id, :integer, :required, "Room ID"
+     property :school, :school, :required, "School"
      property :description, :string, :optional, "Description"
      property :projector, :boolean, :optional, "Has Projector?"
      property :seats, :integer, :optional, "Number of Seats"
+    end
+
+    swagger_model :school do
+      description "A School object."
+      property :id, :integer, :required, "School ID"
+    end
+
+    swagger_model :Room do
+     description "A Room object."
+     property :room, :Rm, :required, "Room"
     end
 
     private
