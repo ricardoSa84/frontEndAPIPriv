@@ -4,6 +4,12 @@ module Api::V1
 
   swagger_controller :courses, "Courses Management"
 
+  # GET /courses
+  def index
+    @courses = Course.all
+
+    render json: @courses
+  end
 
   swagger_api :index do
     summary "Fetches all Courses items"
@@ -12,26 +18,19 @@ module Api::V1
     response :not_acceptable, "Course ID doesn't exist"
   end
 
-  # GET /courses
-  def index
-    @courses = Course.all
-
-    render json: @courses
-  end
-
-
-
   # GET /courses/1
   def show
     render json: @course
   end
 
   swagger_api :show do
-    summary "Fetches a Courses items"
+    summary "Fetches a Course items"
     notes "This lists an active Course"
-    param :id, :integer, :required, "User ID"
-    #param :path, :nested_id, :integer, :optional, "Team Id"
+    param :path, :id, :integer, :optional, "User Id"
+    response :ok, "Success", :Course
     response :unauthorized
+    response :not_acceptable
+    response :not_found
     response :not_acceptable, "Course ID doesn't exist"
   end
 
@@ -47,12 +46,10 @@ module Api::V1
   end
 
   swagger_api :create do
-    summary "Creates a Courses item"
-    notes "Creates a Courses item"
-    #param :id, "Course ID"
-    param :course ,:name, :string, :optional, "Name"
-    #param :path, :nested_id, :integer, :optional, "Team Id"
-
+    summary "Creates a Course item"
+    notes "Creates a Course item"
+    #param :course ,:name, :string, :optional, "Name"
+    param  :body ,:body, :Course, :required, "Create a Course"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -67,13 +64,10 @@ module Api::V1
   end
 
   swagger_api :update do
-    summary "Updates a Courses item"
-    notes "Updates a Courses item"
-    param :id, :integer, :required, "User ID"
-    param_list :course ,:name, :string, :optional, "Name"
-    param_list :course, :school, :nested_id, :integer, :optional, "school Id"
-    param_list :course, :degree, :nested_id, :integer, :optional, "degree Id"
-    #param :path, :nested_id, :integer, :optional, "Team Id"
+    summary "Updates a Course item"
+    notes "Updates a Course item"
+    param :path, :id, :integer, :optional, "User Id"
+    param :body ,:body, :course, :required, "Updates a Course"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
   end
@@ -86,10 +80,38 @@ module Api::V1
   swagger_api :destroy do
     summary "Destroys a Courses item"
     notes "Destroys a Courses item"
-    param :id, :integer, :required, "User ID"
-    #param :path, :nested_id, :integer, :optional, "Team Id"
+    param :path, :id, :integer, :optional, "User Id"
     response :unauthorized
     response :not_acceptable, "Course ID doesn't exist"
+  end
+
+ swagger_model :course do
+    description "A Course object."
+    property :Course, :cos, :required, "Course Id"
+  end
+  
+  swagger_model :cos do
+     description "A Course aux object."
+     property :id, :integer, :required, "Course Id"
+     property :name, :string, :required, "Name"
+     property :school, :school, :required, "School"
+     property :degree, :degree, :required, "Degree"
+     property_list :disciplines, :disciplines, :required, "Disciplines", [:disciplines,:disciplines]
+     #property :disciplines, :disciplines, :required, "Disciplines"
+  end
+
+  swagger_model :school do
+    description "A School object."
+    property :id, :integer, :required, "School Id"
+  end
+
+  swagger_model :degree do
+    description "A Degree object."
+    property :id, :integer, :required, "Degree Id"
+  end
+  swagger_model :disciplines do
+    description "A Disciplines object."
+    property :id, :integer, :required, "Disciplines Id"
   end
 
   private
@@ -101,7 +123,6 @@ module Api::V1
     # Only allow a trusted parameter "white list" through.
     def course_params
       params.require(:course).permit(:name, :school => [:id], :degree => [:id] )
-      #params.require(:course).permit(:name, :school_attributes => [:id, :name] )
     end
   end
 end

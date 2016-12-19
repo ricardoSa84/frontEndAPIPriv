@@ -4,8 +4,6 @@ module Api::V1
 
   swagger_controller :schools, "Schools Management"
 
-
-
   # GET /schools
   def index
     @schools = School.all
@@ -68,7 +66,7 @@ module Api::V1
     summary "Updates a School item"
     notes "Updates a School item"
     param :path, :id, :integer, :optional, "User Id"
-    param :body ,:body, :School, :required, "Create a School"
+    param :body ,:body, :School, :required, "Updates a School"
     response :unauthorized
     response :not_acceptable, "School ID doesn't exist"
   end
@@ -91,12 +89,12 @@ module Api::V1
      description "A School object."
      property :id, :integer, :required, "User Id"
      property :name, :string, :optional, "Name"
-     property :country, :integer, :required, "User Id"
-     property :distric, :string, :optional, "Name"
-     property :city, :integer, :required, "User Id"
-     property :county, :string, :optional, "Name"
-     property :postCode, :integer, :required, "User Id"
-     property :addressDetails, :string, :optional, "Name"
+     property :country, :integer, :required, "Country"
+     property :distric, :string, :optional, "District"
+     property :city, :integer, :required, "City"
+     property :county, :string, :optional, "County"
+     property :postCode, :integer, :required, "Post Code"
+     property :addressDetails, :string, :optional, "Address Details"
   end
 
 
