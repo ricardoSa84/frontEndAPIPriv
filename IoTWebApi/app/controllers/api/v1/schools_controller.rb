@@ -89,11 +89,11 @@ module Api::V1
      description "A School object."
      property :id, :integer, :required, "School ID"
      property :name, :string, :optional, "Name"
-     property :country, :integer, :required, "Country"
+     property :country, :string, :required, "Country"
      property :distric, :string, :optional, "District"
-     property :city, :integer, :required, "City"
+     property :city, :string, :required, "City"
      property :county, :string, :optional, "County"
-     property :postCode, :integer, :required, "Post Code"
+     property :postCode, :string, :required, "Post Code"
      property :addressDetails, :string, :optional, "Address Details"
   end
 
