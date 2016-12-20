@@ -3,7 +3,7 @@ class CourseSerializer < ActiveModel::Serializer
   #to show the details !!
 
   belongs_to :school
-  belongs_to :degree
+  has_one :degree
 
   has_many :disciplines
 end

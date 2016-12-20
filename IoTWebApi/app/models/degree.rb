@@ -1,3 +1,4 @@
 class Degree < ApplicationRecord
-	has_many :courses
+	#has_many :courses
+	#belongs_to :courses
 end

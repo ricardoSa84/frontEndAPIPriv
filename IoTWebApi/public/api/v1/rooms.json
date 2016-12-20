@@ -51,7 +51,7 @@
             {
               "paramType": "body",
               "name": "body",
-              "type": "Course",
+              "type": "Room",
               "description": "Create a Room",
               "required": true
             }
@@ -91,7 +91,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "Room ID",
               "required": false
             }
           ],
@@ -145,7 +145,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "Room ID",
               "required": false
             },
             {
@@ -184,7 +184,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "Room ID",
               "required": false
             }
           ],
@@ -210,15 +210,20 @@
   ],
   "authorizations": null,
   "models": {
-    "Room": {
-      "id": "Room",
+    "Rm": {
+      "id": "Rm",
       "required": [
-        "id"
+        "id",
+        "school"
       ],
       "properties": {
         "id": {
           "type": "integer",
-          "description": "User Id"
+          "description": "Room ID"
+        },
+        "school": {
+          "type": "school",
+          "description": "School"
         },
         "description": {
           "type": "string",
@@ -231,6 +236,32 @@
         "seats": {
           "type": "integer",
           "description": "Number of Seats"
+        }
+      },
+      "description": "A Aux Room object."
+    },
+    "school": {
+      "id": "school",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "School ID"
+        }
+      },
+      "description": "A School object."
+    },
+    "Room": {
+      "id": "Room",
+      "required": [
+        "room"
+      ],
+      "properties": {
+        "room": {
+          "type": "Rm",
+          "description": "Room"
         }
       },
       "description": "A Room object."

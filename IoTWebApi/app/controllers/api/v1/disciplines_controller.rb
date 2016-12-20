@@ -26,7 +26,7 @@ module Api::V1
     swagger_api :show do
       summary "Fetches a Discipline item"
       notes "This lists an active Discipline"
-      param :path, :id, :integer, :optional, "User Id"
+      param :path, :id, :integer, :optional, "Discipline ID"
       response :ok, "Success", :Discipline
       response :unauthorized
       response :not_acceptable
@@ -39,7 +39,7 @@ module Api::V1
       @discipline = Discipline.new(discipline_params)
 
       if @discipline.save
-        render json: @discipline, status: :created, location: @discipline
+        render json: @discipline, status: :created#, location: @discipline
       else
         render json: @discipline.errors, status: :unprocessable_entity
       end
@@ -49,7 +49,7 @@ module Api::V1
       summary "Creates a Discipline item"
       notes "Creates a Discipline item"
       #param :course ,:name, :string, :optional, "Name"
-      param  :body ,:body, :Course, :required, "Create a Discipline"
+      param  :body ,:body, :Discipline, :required, "Create a Discipline"
       response :unauthorized
       response :not_acceptable, "Discipline ID doesn't exist"
     end
@@ -66,7 +66,7 @@ module Api::V1
     swagger_api :update do
       summary "Degree a Discipline item"
       notes "Degree a Discipline item"
-      param :path, :id, :integer, :optional, "User Id"
+      param :path, :id, :integer, :optional, "Discipline ID"
       param :body ,:body, :Discipline, :required, "Updates a Discipline"
       response :unauthorized
       response :not_acceptable, "Discipline ID doesn't exist"
@@ -80,16 +80,15 @@ module Api::V1
     swagger_api :destroy do
       summary "Destroys a Discipline item"
       notes "Destroys a Discipline item"
-      param :path, :id, :integer, :optional, "User Id"
+      param :path, :id, :integer, :optional, "Discipline ID"
       response :unauthorized
       response :not_acceptable, "Discipline ID doesn't exist"
     end
 
     swagger_model :Discipline do
      description "A Discipline object."
-     property :id, :integer, :required, "User Id"
+     property :id, :integer, :required, "Discipline ID"
      property :name, :string, :optional, "Name"
-     response :unauthorized
     end
 
     private
@@ -100,7 +99,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def discipline_params
-        params.require(:discipline).permit(:name)
+        params.require(:discipline).permit(:name, :courses => [:id])
       end
   end
 end

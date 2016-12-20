@@ -17,8 +17,8 @@
               "required": true
             }
           ],
-          "summary": "Fetches all Courses items",
-          "notes": "This lists all the active Courses",
+          "summary": "Fetches all Course items",
+          "notes": "This lists all the active Course",
           "responseMessages": [
             {
               "code": 401,
@@ -51,7 +51,7 @@
             {
               "paramType": "body",
               "name": "body",
-              "type": "Course",
+              "type": "course",
               "description": "Create a Course",
               "required": true
             }
@@ -91,7 +91,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "Course ID",
               "required": false
             }
           ],
@@ -100,7 +100,7 @@
           "responseMessages": [
             {
               "code": 200,
-              "responseModel": "Course",
+              "responseModel": "course",
               "message": "Success"
             },
             {
@@ -145,7 +145,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "Course ID",
               "required": false
             },
             {
@@ -184,7 +184,7 @@
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "User Id",
+              "description": "Course ID",
               "required": false
             }
           ],
@@ -218,7 +218,7 @@
       "properties": {
         "course": {
           "type": "cos",
-          "description": "Course Id"
+          "description": "Course ID"
         }
       },
       "description": "A Course object."
@@ -235,7 +235,7 @@
       "properties": {
         "id": {
           "type": "integer",
-          "description": "Course Id"
+          "description": "Course ID"
         },
         "name": {
           "type": "string",
@@ -271,7 +271,7 @@
       "properties": {
         "id": {
           "type": "integer",
-          "description": "School Id"
+          "description": "School ID"
         }
       },
       "description": "A School object."
@@ -284,7 +284,7 @@
       "properties": {
         "id": {
           "type": "integer",
-          "description": "Degree Id"
+          "description": "Degree ID"
         }
       },
       "description": "A Degree object."
@@ -297,7 +297,7 @@
       "properties": {
         "id": {
           "type": "integer",
-          "description": "Disciplines Id"
+          "description": "Disciplines ID"
         }
       },
       "description": "A Disciplines object."

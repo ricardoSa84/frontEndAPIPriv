@@ -26,7 +26,7 @@ module Api::V1
     swagger_api :show do
       summary "Fetches a Room item"
       notes "This lists an active Room"
-      param :path, :id, :integer, :optional, "User Id"
+      param :path, :id, :integer, :optional, "Room ID"
       response :ok, "Success", :Room
       response :unauthorized
       response :not_acceptable
@@ -39,7 +39,7 @@ module Api::V1
       @room = Room.new(room_params)
 
       if @room.save
-        render json: @room, status: :created, location: @room
+        render json: @room, status: :created#, location: @room
       else
         render json: @room.errors, status: :unprocessable_entity
       end
@@ -49,7 +49,7 @@ module Api::V1
       summary "Creates a Room item"
       notes "Creates a Room item"
       #param :course ,:name, :string, :optional, "Name"
-      param  :body ,:body, :Course, :required, "Create a Room"
+      param  :body ,:body, :Room, :required, "Create a Room"
       response :unauthorized
       response :not_acceptable, "Room ID doesn't exist"
     end
@@ -66,7 +66,7 @@ module Api::V1
     swagger_api :update do
       summary "Degree a Room item"
       notes "Degree a Room item"
-      param :path, :id, :integer, :optional, "User Id"
+      param :path, :id, :integer, :optional, "Room ID"
       param :body ,:body, :Room, :required, "Updates a Room"
       response :unauthorized
       response :not_acceptable, "Room ID doesn't exist"
@@ -80,17 +80,28 @@ module Api::V1
     swagger_api :destroy do
       summary "Destroys a Room item"
       notes "Destroys a Room item"
-      param :path, :id, :integer, :optional, "User Id"
+      param :path, :id, :integer, :optional, "Room ID"
       response :unauthorized
       response :not_acceptable, "Room ID doesn't exist"
     end
 
-    swagger_model :Room do
-     description "A Room object."
-     property :id, :integer, :required, "User Id"
+    swagger_model :Rm do
+     description "A Aux Room object."
+     property :id, :integer, :required, "Room ID"
+     property :school, :school, :required, "School"
      property :description, :string, :optional, "Description"
      property :projector, :boolean, :optional, "Has Projector?"
      property :seats, :integer, :optional, "Number of Seats"
+    end
+
+    swagger_model :school do
+      description "A School object."
+      property :id, :integer, :required, "School ID"
+    end
+
+    swagger_model :Room do
+     description "A Room object."
+     property :room, :Rm, :required, "Room"
     end
 
     private
@@ -101,7 +112,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def room_params
-        params.require(:room).permit(:description, :projector, :seats)
+        params.require(:room).permit(:description, :projector, :seats, :school => [:id])
       end
   end
 end
