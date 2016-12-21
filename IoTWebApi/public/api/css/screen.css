@@ -224,7 +224,9 @@
   color: #aaaaaa;
 }
 .swagger-section .swagger-ui-wrap a {
-  color: #547f00;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 10px;
 }
 .swagger-section .swagger-ui-wrap a img {
   border: none;
@@ -625,12 +627,11 @@
   font-size: 0.9em;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading ul.options li a {
-  color: #aaaaaa;
+  color: #0000000;
   text-decoration: none;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading ul.options li a:hover {
   text-decoration: underline;
-  color: black;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading ul.options li a:hover,
 .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading ul.options li a:active,
@@ -651,7 +652,7 @@
   padding-left: 0;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading h2 {
-  color: #999999;
+  color: #FFFFFF;
   padding-left: 0;
   display: block;
   clear: none;
@@ -660,10 +661,10 @@
   font-weight: bold;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading h2 a {
-  color: #999999;
+  color: #FFFFFF;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource div.heading h2 a:hover {
-  color: black;
+  color: grey;
 }
 .swagger-section .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation {
   float: none;
